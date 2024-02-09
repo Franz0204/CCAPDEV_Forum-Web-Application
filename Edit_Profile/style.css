@@ -24,7 +24,13 @@ html, body {
     box-shadow: 0px 4px 10px -4px #C1ACBA;
 }
 
-.profile {
+.Profile{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%
+}
+
+.pfp {
     border-radius: 100%;
     border-color: #76453B;
     border-style: solid;
@@ -157,9 +163,3 @@ html, body {
 .styled-button:hover {
     background-color: #76453B;
 }
-
-
-
-
-
-
