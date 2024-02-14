@@ -80,3 +80,8 @@
 .note-sprite {
     width: 10%;
 }
+
+
+.tag, .tag > a, .tag > a:hover {
+    color: #B19470;
+}

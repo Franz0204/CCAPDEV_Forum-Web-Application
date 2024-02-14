@@ -68,10 +68,6 @@ a:hover {
     border: #76453B solid 2px;
 }
 
-#search-form:hover {
-    background-color: #76453B;
-}
-
 #page-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -159,6 +155,11 @@ a:hover {
     text-align: center;
     padding-top: 1%;
     padding-bottom: 1%;
+}
+
+#post-submit:hover {
+    background-color: #76453B;
+    color: #F8FAE5;
 }
 
 #comment-container {
@@ -282,6 +283,7 @@ textarea {
     padding-bottom: 1%;
 }
 
-.tag, .tag > a, .tag > a:hover {
-    color: #B19470;
+#comment-submit:hover {
+    background-color: #76453B;
+    color: #F8FAE5;
 }
