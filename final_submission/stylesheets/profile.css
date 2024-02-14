@@ -3,6 +3,7 @@ html, body {
     margin: 0; 
     padding: 0;
     font-family: Arial, Helvetica, sans-serif; 
+    background-color: #43766C;
 }
 
 .header{
@@ -89,6 +90,7 @@ html, body {
     justify-content: space-between;
     overflow: hidden;
     box-shadow: 0px 4px 10px -4px #C1ACBA;
+    margin-right: 10%;
 }
 
 .Profile-page{
@@ -163,142 +165,15 @@ html, body {
 }
 
 .right-side {
-    width: 80%;
-    background-color: #43766C;
+    width: 60%;
     display: flex;
     flex-direction: column;
+    justify-content: right;
     align-items: center; 
     overflow-y: auto;
 }
 
-.post,.comment{
-    margin-top: 2%;
-}
 
-.post {
-    background-color: white;
-    width: 80%;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    min-height: 500px;
-    border: #76453B solid 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #76453B;
-}
-
-.comment {
-    background-color: white;
-    width: 80%; 
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-    min-height: 250px; 
-    border: #76453B solid 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #76453B; 
-}
-
-.post-elements,.content-header,.content-post,.content-date,.profile-name,.post-reaction,.reaction{
-    display: flex;    
-}
-
-.post-elements{
-    flex-direction: column;
-}
-
-.content-header{
-    flex-direction: row;
-    margin: 1% 2% 2% 2%;
-}
-
-.content-profile,.content-date{
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.post-name{
-    flex-direction: column;
-    font-size: large;
-}
-
-.content-date{
-    justify-content: right;
-    font-size: large;
-}
-
-.post-pfp{
-    border-radius: 100%;
-    border-color: #76453B;
-    border-style: solid;
-    max-width: 100%;
-    max-height: 50px; 
-    overflow: hidden; 
-    margin-right: 2%;
-}
-
-.post-tags{
-    margin-bottom: 1%;
-}
-
-.content-post{
-    margin-left: 10%;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.content-pic {
-    border: #76453B solid 2px;
-    max-width: 100%; 
-    max-height: 300px; 
-    overflow: hidden; 
-}
-
-.content-comment {
-    border: #76453B solid 2px;
-    max-width: 100%; 
-    max-height: 150px; 
-    overflow: hidden; 
-}
-
-.post-reaction,.reaction{
-    flex-direction: row;
-}
-
-.post-reaction{
-    justify-content: space-between;
-}
-
-.reaction-pic{
-    max-width: 100%;
-    max-height: 40px; 
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.reaction{
-    padding-left: 2%;
-}
-
-.reaction-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 10px;
-    font-size: large;
-}
-
-.post-tags{
-    max-width: 80%;
-    max-height: 100px;
-}
 
 
 

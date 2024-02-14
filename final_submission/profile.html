@@ -2,6 +2,7 @@
     <head>
         <title>Profile</title>
         <link rel="stylesheet" href="stylesheets/profile.css">
+        <link rel="stylesheet" href="stylesheets/post-only.css">
     </head>
     <body>
         <div class="header">
@@ -49,132 +50,28 @@
                 </div>
             </div>
             <div class="right-side">
-                <div class="post">
-                    <div class="post-elements"> 
-                        <div class="content-header">
-                            <div class="content-profile">
-                                <img class="post-pfp"  src="profile_assets/pfp.jpg">
-                                <div class="post-name">
-                                    <div><b>Francisco Emmanuel Dumas</b></div>
-                                    <div>@Franz0204</div>
-                                </div>
-                            </div>
-                            <div class="content-date">
-                                March 24, 2024
-                            </div>
+                <div class="post-box">
+                    <div class="post-box-header">
+                        <div class="post-box-header-icon"><img src="profile_assets/pfp.jpg"></div>
+                        <div class="post-box-header-data-container">
+                            <div class="post-box-header-username">Francisco Dumas</div>
+                            <div class="post-box-header-handle">@Franz0204</div>
                         </div>
-
-                        <div class="content-post">
-                            <div class="post-tags">
-                                <b>Sample Title #Tag1 #Tag2</b>
-                            </div>
-                            <div class="content">
-                                <img class="content-pic"  src="profile_assets/pfp.jpg">
-                            </div>
-                        </div>
+                        <div class="post-box-header-date"><a href="post.html">February 13, 2024</a></div>
                     </div>
-                    <div class="post-reaction">
-                        <div class="reaction">
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="generic_assets/upvote.png">
-                                <b>10</b>
-                            </div>
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="generic_assets/downvote.png">
-                                <b>5</b>
-                            </div>
-                        </div>
-                        <div class="comment-button">
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="generic_assets/comment.png">
-                                <b>5</b>
-                            </div>
-                        </div>
+                    <div class="post-box-body">
+                        <div class="post-box-text">Sample post text</div>
+                        <div class="post-image"><img src="post_images/mtFuji.jpg"></div>
                     </div>
-                </div>
-                <div class="comment">
-                    <div class="post-elements"> 
-                        <div class="content-header">
-                            <div class="content-profile">
-                                <img class="post-pfp"  src="pfp.jpg">
-                                <div class="post-name">
-                                    <div><b>Francisco Emmanuel Dumas</b></div>
-                                    <div>@Franz0204</div>
-                                </div>
-                            </div>
-                            <div class="content-date">
-                                March 24, 2024
-                            </div>
+                    <div class="post-box-footer">
+                        <div class="upvotes">
+                            <span><img class="note-sprite" src="generic_assets/upvote.png"> 2</span>
                         </div>
-                        <div class="content-post">
-                            <div class="post-tags">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus tortor, 
-                                sagittis quis luctus vitae, blandit eget velit. Aliquam egestas tortor ac lorem ultrices tempus. Morbi viverra turpis ut risus consequat, nec tristique eros tempor. Vivamus massa neque, rhoncus et pharetra id, pretium 
-                            </div>
-                            <!--Pictures can only be seen in the post page-->
-                            <div class="content">
-                            </div>
+                        <div class="downvotes">
+                            <span><img class="note-sprite" src="generic_assets/downvote.png"> 0</span>
                         </div>
-                    </div>
-                    <div class="post-reaction">
-                        <div class="reaction">
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="upvote.png">
-                                <b>10</b>
-                            </div>
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="downvote.png">
-                                <b>5</b>
-                            </div>
-                        </div>
-                        <div class="comment-button">
-                            <div class="reaction-container">
-                                <b>5</b>
-                                <img class="reaction-pic" src="comment.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="post-elements"> 
-                        <div class="content-header">
-                            <div class="content-profile">
-                                <img class="post-pfp"  src="pfp.jpg">
-                                <div class="post-name">
-                                    <div><b>Francisco Emmanuel Dumas</b></div>
-                                    <div>@Franz0204</div>
-                                </div>
-                            </div>
-                            <div class="content-date">
-                                March 24, 2024
-                            </div>
-                        </div>
-
-                        <div class="content-post">
-                            <div class="post-tags">
-                                <b>Sample Title #Tag1 #Tag2</b>
-                            </div>
-                            <div class="content">
-                                <img class="content-pic"  src="mtFuji.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-reaction">
-                        <div class="reaction">
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="upvote.png">
-                                <b>10</b>
-                            </div>
-                            <div class="reaction-container">
-                                <img class="reaction-pic" src="downvote.png">
-                                <b>5</b>
-                            </div>
-                        </div>
-                        <div class="comment-button">
-                            <div class="reaction-container">
-                                <b>5</b>
-                                <img class="reaction-pic" src="comment.png">
-                            </div>
+                        <div class="comments">
+                            <span><img class="note-sprite" src="generic_assets/comment.png"> 2</span>
                         </div>
                     </div>
                 </div>
