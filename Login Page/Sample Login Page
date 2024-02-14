@@ -33,7 +33,7 @@
         </div>
         <p>Don't have an account? <a href="Sample Register Page.html">Sign up</a>.</p>
       <button type="submit">Login</button>
-      <button type="submit">Cancel<a href="Home.html"></a></button>
+      <button type="submit">Cancel<a href="home.html"></a></button>
     </form>
   </div>
     </div>
