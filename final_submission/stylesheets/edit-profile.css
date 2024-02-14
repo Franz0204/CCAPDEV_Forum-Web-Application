@@ -1,0 +1,63 @@
+
+
+.settings {
+    width: 80%;
+    height: 80%;
+    background-color: #F8FAE5;
+    border-color: #76453B;   
+    border-style: solid;
+}
+
+.settings-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    color: #76453B;
+}
+
+.settings-container > div:first-child {
+    align-self: flex-start; 
+    font-size: xx-large;
+    text-decoration: underline;
+    padding-left: 0%;
+}
+
+.settings-container > div {
+    margin: 10px 0;
+    padding-left: 2%;
+    font-size: x-large;
+}
+
+.input-box-bio{
+    height: 300px;
+    border: 2px solid #76453B;
+    width: 95%;
+    vertical-align: top;
+}
+
+.input-box {
+    width: 300px;
+    height: 30px;
+    border: 2px solid #76453B;
+    width: 80%;
+}
+
+.settings-container > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.styled-button {
+    background-color: #B19470;
+    border: 2px solid #76453B;
+    padding: 6px 32px;
+    font-size: large;
+    color: #F8FAE5;
+    margin-top: 3%;
+}
+
+.styled-button:hover {
+    background-color: #76453B;
+}

@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>Profile</title>
-        <link rel="stylesheet" href="stylesheets/profile.css">
-        <link rel="stylesheet" href="stylesheets/post-only.css">
+        <link rel="stylesheet" href="stylesheets/profile.css" />
+        <link rel="stylesheet" href="stylesheets/post-only.css" />
     </head>
     <body>
         <div class="header">
@@ -17,35 +17,33 @@
             </div>
             <div class="header-profile">
                 <img class="profile" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                <a href="www.google.com" class="white-link"><b>Profile</b></a>
+                <a href="profile.html" class="white-link"><b>Profile</b></a>
             </div>
         </div>
-        <div class="page">
-            <div class="left-side">
-                <div>
-                    <div class="profile-page">
+        <div id="page-content">
+            <div id="left-side">
+                <div class="profile-page">
                         <!-- Apply Javascript to allow the button to upload a file -->
                         <img class="pfp"  src="profile_assets/pfp.jpg">
-                    </div>
-                    <div class="profile-name">
+                </div>
+                <div class="profile-name">
                         <div>Francisco Emmanuel Dumas</div>
                         <div style="font-size: medium;">@Franz0204</div>
-                    </div>
-                    <div class="bio">   
+                </div>
+                <div class="bio">   
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus tortor, 
                         sagittis quis luctus vitae, blandit eget velit. Aliquam egestas tortor ac lorem ultrices tempus. Morbi viverra turpis ut risus consequat, nec tristique eros tempor. Vivamus massa neque, rhoncus et pharetra id, pretium 
                         sed arcu. Morbi blandit massa quis tellus gravida, non tincidunt velit luctus. Quisque vel aliquam leo, in lobortis enim. Pellentesque luctus commodo quam. Morbi mattis vehicula dignissim. Integer mattis vitae justo a maximus. 
                         Aliquam sollicitudin tempor ipsum quis luctus. Nam tristique at tellus fermentum egestas. Nullam nibh magna, malesuada a lacus ut, laoreet consectetur orci. Phasellus fermentum non enim at pellentesque. Praesent at augue sit amet 
                         sem facilisis mattis ut at neque. Ut vel mi vitae nibh mollis vestibulum. 
-                    </div>
                 </div>
                 <div class="edit-options">
                     <div>
                         <!-- remove this from edit profile and add this to normal profile-->
-                        <a href="www.google.com" class="brown-link">Edit Profile</a>
+                        <a href="edit_profile.html" class="brown-link">Edit Profile</a>
                     </div>
                     <div>
-                        <a href="www.google.com " class="brown-link">Log Out</a>
+                        <a href="home.html" class="brown-link">Log Out</a>
                     </div>
                 </div>
             </div>
@@ -60,10 +58,33 @@
                         <div class="post-box-header-date"><a href="post.html">February 13, 2024</a></div>
                     </div>
                     <div class="post-box-body">
-                        <div class="post-box-text">Sample post text</div>
+                        <div class="post-box-text">Sample post text <span class=tag>#tag</span></div>
                         <div class="post-image"><img src="post_images/mtFuji.jpg"></div>
                     </div>
-                    <br>
+                    <div class="post-box-footer">
+                        <div class="upvotes">
+                            <span><img class="note-sprite" src="generic_assets/upvote.png"> 2</span>
+                        </div>
+                        <div class="downvotes">
+                            <span><img class="note-sprite" src="generic_assets/downvote.png"> 0</span>
+                        </div>
+                        <div class="comments">
+                            <span><img class="note-sprite" src="generic_assets/comment.png"> 2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-box">
+                    <div class="post-box-header">
+                        <div class="post-box-header-icon"><img src="profile_assets/pfp.jpg"></div>
+                        <div class="post-box-header-data-container">
+                            <div class="post-box-header-username">Francisco Dumas</div>
+                            <div class="post-box-header-handle">@Franz0204</div>
+                        </div>
+                        <div class="post-box-header-date"><a href="post.html">February 13, 2024</a></div>
+                    </div>
+                    <div class="post-box-body">
+                        <div class="post-box-text">Sample post text 2</div>
+                    </div>
                     <div class="post-box-footer">
                         <div class="upvotes">
                             <span><img class="note-sprite" src="generic_assets/upvote.png"> 2</span>
