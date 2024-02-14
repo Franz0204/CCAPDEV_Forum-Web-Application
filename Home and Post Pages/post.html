@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="style-draft.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="style-draft.css" type="text/css" media="all"/>
 </head>
 <body>
     <div id="overhead-bar">
-        <div id="header-logo"><a href="https://www.google.com"><img id="logo"src="https://cdn.pixabay.com/photo/2016/09/12/01/31/love-1662880_960_720.jpg"></a></div>
+        <div id="header-logo"><a href="home.html"><img id="logo"src="https://cdn.pixabay.com/photo/2016/09/12/01/31/love-1662880_960_720.jpg"></a></div>
         <div id="search-box">
             <form>
                 <input type="text" id="search-form"/>
@@ -75,7 +75,7 @@
                     <div class="post-box-header-date">February 13, 2024</div>
                 </div>
                 <div class="post-box-body">
-                    <div class="post-box-text">Sample post text</div>
+                    <div class="post-box-text">Sample post text <span class="tag">#tag</span></div>
                     <div class="post-image"><img src="mtFuji.jpg"></div>
                 </div>
                 <div class="post-box-footer">
@@ -86,14 +86,65 @@
                         <span><img class="note-sprite" src="downvote.png"> 0</span>
                     </div>
                     <div class="comments">
-                        <span><img class="note-sprite" src="comment.png"> 1</span>
+                        <span><img class="note-sprite" src="comment.png"> 2</span>
                     </div>
                 </div>
             </div>
             <div id="comment-container">
                 <div class="comment-box">
-
+                    <div class="comment-box-header">
+                        <div class="comment-box-header-icon"><img src="pfp_2.jpg"></div>
+                        <div class="comment-box-header-data-container">
+                            <div class="comment-box-header-username">Sabine Mapa</div>
+                            <div class="comment-box-header-handle">@Baen</div>
+                        </div>
+                        <div class="comment-box-header-date">February 14, 2024</div>
+                    </div>
+                    <div class="comment-box-body">
+                        <div class="comment-box-text">Sample comment text</div>
+                    </div>
+                    <div class="comment-box-footer">
+                        <div class="upvotes">
+                            <span><img class="note-sprite" src="upvote.png"> 0</span>
+                        </div>
+                        <div class="downvotes">
+                            <span><img class="note-sprite" src="downvote.png"> 65</span>
+                        </div>
+                        <div class="comments">
+                            <span><img class="note-sprite" src="comment.png"> 0</span>
+                        </div>
+                    </div>
                 </div>
+                <div class="comment-box">
+                    <div class="comment-box-header">
+                        <div class="comment-box-header-icon"><img src="midori_pfp.png"></div>
+                        <div class="comment-box-header-data-container">
+                            <div class="comment-box-header-username">Sou Hiyori</div>
+                            <div class="comment-box-header-handle">@ASUNARO_peon</div>
+                        </div>
+                        <div class="comment-box-header-date">February 14, 2024</div>
+                    </div>
+                    <div class="comment-box-body">
+                        <div class="comment-box-text">Nice pic!</div>
+                    </div>
+                    <div class="comment-box-footer">
+                        <div class="upvotes">
+                            <span><img class="note-sprite" src="upvote.png"> 0</span>
+                        </div>
+                        <div class="downvotes">
+                            <span><img class="note-sprite" src="downvote.png"> 65</span>
+                        </div>
+                        <div class="comments">
+                            <span><img class="note-sprite" src="comment.png"> 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="comment-entry">
+                <div id="comment-entry-box">
+                    <textarea placeholder="Write a comment..."></textarea>
+                </div>
+                <div id="comment-submit">Submit comment</div>
             </div>
         </div>
     </div>

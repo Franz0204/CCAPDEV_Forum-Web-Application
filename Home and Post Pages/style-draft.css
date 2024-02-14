@@ -250,7 +250,6 @@ a:hover {
     width: 95%;
     justify-content: center;
     margin: 0 auto;
-    padding-bottom: 5%;
 }
 
 .comment-box {
@@ -258,10 +257,113 @@ a:hover {
     border-top: 0px;
     color: #76453B;
     justify-content: center;
-    padding: 5%;
+    padding: 1%;
+}
+
+
+.comment-box-header {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left:   2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-box-header-icon {
+    width: 12.5%;
+    justify-content: center;
+}
+
+.comment-box-header-icon > img {
+    border-radius: 100%;
+    width: 60%;
+    border: #76453B solid 3px;
+}
+
+.comment-box-header-data-container {
+    width:65%;
+    justify-content: left;
+}
+
+.comment-box-header-date {
+    justify-content: right;
+    text-align: center;
+    padding: 10px;
+    font-size: x-small;
+}
+
+.comment-box-header-username {
+    font-size: large;
+}
+
+.comment-box-header-handle {
+    font-size: x-small;
+}
+
+
+.comment-box-body {
+    margin-left: 10%;
+    margin-right: 10%
+}
+.comment-box-text {
+    font-size: medium;
+    margin-bottom: 2.5%;
+}
+
+.comment-box-footer {
+    margin: 5%;
+    margin-left: 18%;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    font-size: small;
 }
 
 #comment-entry {
-    border: #76453B solid 2px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    margin-top: 2.5%;
+    
+}
+
+#comment-entry-box {
+    background-color: white;
+    margin: 0 auto;
     color: #76453B;
+    border: #76453B 2px solid;
+    min-height: 90px;
+    width: 94.5%;
+}
+
+#comment-entry-box > textarea {
+    resize: none;
+    width: 85%;
+    font-family: Arial;
+    border: 0px;
+    font-size: large;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+textarea {
+    color: #76453B;
+}
+
+#comment-submit {
+    margin: 0 auto;
+    justify-content: center;
+    width: 90%;
+    background-color: #F8FAE5;
+    color: #76453B;
+    border: #76453B 2px solid;
+    border-top: 0px;
+    font-size: large;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.tag, .tag > a, .tag > a:hover {
+    color: #B19470;
 }
