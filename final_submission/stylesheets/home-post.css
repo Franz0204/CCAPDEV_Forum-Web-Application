@@ -59,7 +59,6 @@ a:hover {
 }
 
 #search-box {
-    
     justify-content: center;
 }
 
@@ -75,6 +74,11 @@ a:hover {
     font-size: medium;
     color: #F8FAE5;
     border: #76453B solid 2px;
+}
+
+#search-button:hover {
+    background-color: #76453B;
+    color: #F8FAE5;
 }
 
 #page-content {
