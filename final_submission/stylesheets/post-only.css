@@ -49,7 +49,7 @@
 
 .post-image {
     width: 85%;
-    height: 35%;
+    height: auto;
 }
 
 .post-image > img {
