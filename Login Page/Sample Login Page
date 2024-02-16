@@ -33,9 +33,13 @@
         </div>
         <p>Don't have an account? <a href="Sample Register Page.html">Sign up</a>.</p>
       <button type="submit">Login</button>
+
+      <p> Didn't mean to login? <a href="home.html">Cancel</a>.</p>
+    
+      
     </form>
   </div>
     </div>
-
+<!--aksdjnk-->
 </body>
 </html>

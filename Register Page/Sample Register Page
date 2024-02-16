@@ -30,6 +30,9 @@
       <input type="text" id="username" name="username" required>
 
       <button type="submit">Register</button>
+
+      <p> Didn't mean to register? <a href="home.html">Cancel</a>.</p>
+    
     </form>
   </div>
     </div>
