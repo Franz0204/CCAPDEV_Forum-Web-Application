@@ -12,7 +12,8 @@ body {
   .container{
     max-width:900px;
     margin: auto;
-
+    border:#76453B solid 2px;
+    border-radius: 5px;
   }
   
   .login-container {
@@ -100,3 +101,6 @@ body {
     text-decoration: none;
   }
   
+  p {
+    color: #76453B;
+  }

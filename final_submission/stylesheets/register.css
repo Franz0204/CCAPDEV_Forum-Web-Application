@@ -12,7 +12,8 @@ body {
   .container{
     max-width:900px;
     margin: auto;
-
+    border:#76453B solid 2px;
+    border-radius: 5px;
   }
   
   .signup-container {
@@ -26,7 +27,7 @@ body {
   
   .signup-container h2 {
     margin: 0;
-    color: black;
+    color: #F8FAE5;
     font-weight: 300;
     text-align: center;
   }
@@ -85,3 +86,6 @@ body {
     text-decoration: none;
   }
   
+  p {
+    color: #76453B;
+  }
