@@ -85,3 +85,12 @@
 .tag, .tag > a, .tag > a:hover {
     color: #B19470;
 }
+
+.brown-link {
+    color: #76453B; 
+    text-decoration: underline; 
+}
+
+.brown-link:hover {
+    color: #B19470;
+}
