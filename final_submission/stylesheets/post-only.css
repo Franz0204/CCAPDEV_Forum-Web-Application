@@ -57,6 +57,17 @@
     width: inherit;
 }
 
+.post-box-title {
+    font-size: x-large;
+    margin-bottom: 1.5%;
+
+}
+
+.title-divider {
+    border-top: #76453B 2px dashed;
+    margin-bottom: 2.5%;
+}
+
 .post-box-text {
     font-size: large;
     margin-bottom: 2.5%;
