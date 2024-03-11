@@ -5,7 +5,7 @@ const User = function (id, username, email, password, handle){
     this.email = email;
     this.password = password;
     this.handle = handle 
-}
+};
 
 
 
@@ -22,17 +22,30 @@ document.addEventListener("DOMContentLoaded",function() {
         let email = document.querySelector("#email").value;
         let password = document.querySelector("#password").value;
         let handle = document.querySelector("#handle").value;
-        if(validateField() && validateField() && validateField() & validateField()) {
-            let u = new User();
-            users.push(u);
+        if(validateField(username) && validateField(email) && validateField(password) & validateField(handle)) {
+            let userId = Date.now().toString();
+
+            let newUser = new User(userId, username, email, pasword, handle);
+            users.push(newUser);
+ 
+            const usersJSON = JSON.stringify(users,null, 2);
+            
+           
+
+            document.querySelector("#username").value = "";
+            document.querySelector("#email").value = "";
+            document.querySelector("#password").value = "";
+            document.querySelector("#handle").value = "";
+        
+
+        alert('User registered successfully!');
         }
-    })
+    });
 
 
     function validateField(value) {
-        if (value === " "){
-            return false;
-        }
-            return true;
+       return value.trim() !== "";
     }
-})
+
+  
+});
