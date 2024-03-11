@@ -1,5 +1,9 @@
 {
     "users":[
-        {"id":"00001", "handle":"MCruz03","name":"Maria Cruz","bio":"I love fandoms and concerts. :3"}
+        {"id":"00001", "handle":"MCruz03","name":"Maria Cruz","bio":"I love fandoms and concerts. :3"},
+        {"id":"00002", "handle":"mGarcia619","name":"Miguel Garcia","bio":"-Recent Graduate of BSIT at La Salle\n-Passionate and Energetic\nOpportunity comes to those who seek it."},
+        {"id":"00003", "handle":"Zofia213","name":"Sofia Reyes","bio":" Lover of literature, from classic tales to modern masterpieces. There's never enough room on my shelf 📚❤️"},
+        {"id":"00004", "handle":"andre0417","name":"Andres Tantoco","bio":"Andre, 21, profesional thrill-seeker and full-time daredevil."},
+        {"id":"00005", "handle":"Phil8080","name":"Phil Magno","bio":"- Insatiably curious about all matters technological. Passionate about problem-solving and creating in the digital realm."}
     ]
 }
