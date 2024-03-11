@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let p = new Post("00001","baen","Baen Baen",formatted,title,body);
+            let p = new Post("00001","baen","Baen Baen",formatted,title,body); //will fix placeholders later
             posts.push(p);
             makePost(p);
         }
