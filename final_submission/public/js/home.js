@@ -11,8 +11,8 @@ const posts = [];
 document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
     const imageInput = document.querySelector("#post-image-upload");
-
-    postInput.addEventListener("click",function(e) {
+    const postForm = document.querySelector("#post-entry-box");
+    /*postInput.addEventListener("click",function(e) {
         e.preventDefault();
         let title = document.querySelector("#title-input").value;
         let body = document.querySelector("#post-body-textarea").value;
@@ -23,7 +23,43 @@ document.addEventListener("DOMContentLoaded",function() {
             posts.push(p);
             makePost(p);
         }
-    })
+    })*/
+    postInput?.addEventListener("click", async(e) => {
+        e.preventDefault();
+        const postdata = new FormData(postForm);
+        let title = document.querySelector("#title-input").value;
+        let body = document.querySelector("#post-body-textarea").value;
+        if(validateField(title) && validateField(body)) {
+            let today = new Date();
+            let formatted = formatDate(today);
+            let p = new Post("00001","Franz004","Francisco Dumas",formatted,title,body); //will fix placeholders later
+            posts.push(p);
+            makePost(p);
+            let postobject = {
+                usid: p.id,
+                username: p.username,
+                name: p.name,
+                date: p.date,
+                title: p.title,
+                body: p.body
+            }
+            let pjstring = JSON.stringify(postobject);
+            try {
+                const response = await fetch('/make-post', {
+                    method: 'POST',
+                    body: pjstring,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (response.status == 200) {
+                    console.log('success');
+                }
+            }catch(err) {
+                console.error(err);
+            }
+        }
+    });
 
     function validateField(value) {
         if(value === "") {
