@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(username) && validateField(email) && validateField(password) & validateField(handle)) {
             let userId = Date.now().toString();
 
-            let newUser = new User(userId, username, email, pasword, handle);
+            let newUser = new User(userId, username, email, password, handle);
             users.push(newUser);
  
             const usersJSON = JSON.stringify(users,null, 2);
@@ -48,4 +48,21 @@ document.addEventListener("DOMContentLoaded",function() {
     }
 
   
+});
+
+
+// not sure abt this 
+app.post ('/register',(req,res) => {
+    const {username, email, password, handle} = req.body;
+
+    const newUser = {
+        id: Date.now().toString(),
+        username,
+        email,
+        password,
+        handle
+
+    }
+
+    usersData.push(newUser);
 });
