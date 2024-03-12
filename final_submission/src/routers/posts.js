@@ -9,6 +9,7 @@ const posts = db.collection('posts');
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).toArray();
     res.render("home", {
+        title: "Home",
         posts: postsArr
     });
 });

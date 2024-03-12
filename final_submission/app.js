@@ -12,12 +12,13 @@ import router from "./src/routers/index.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
-app.use(express.static(__dirname + '/public'));
+app.use('/static',express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(router);
 app.engine('hbs',exphbs.engine({extname: 'hbs'}));
 app.set("view engine","hbs");
-app.set("views","/views");
+app.set("views","./views");
+app.set("view cache", false);
 
 console.log("URI:" + process.env.MONGODB_URI);
     try {
