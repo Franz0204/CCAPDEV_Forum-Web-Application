@@ -1,0 +1,53 @@
+<title>Profile</title>
+<link rel="stylesheet" href="/static/stylesheets/profile.css" />
+<link rel="stylesheet" href="/static/stylesheets/profile-post-only.css" />
+
+<div class="header">
+            <div class="header-logo">
+                <a href="home.html"><img class="logo" src="generic_assets/CourseConvo.png"></a>
+            </div>
+            <div class="header-search">
+                <form>
+                    <input type="text" id="search-field" />
+                    <input type="submit" value="Search" class="search-style"/>
+                </form>
+            </div>
+            <div class="header-profile">
+                <!-- Alternate between Register/hyperlink to profile -->
+                <img class="profile" src="profile_assets/eyes.jpg">
+                <a href="profile.html" class="white-link"><b>Profile</b></a>
+            </div>
+        </div>
+        <div id="page-content">
+            <div id="left-side">
+                <div>
+                    <div class="profile-page">
+                            <!-- Apply Javascript to allow the button to upload a file -->
+                            <img class="pfp"  src="profile_assets/pfp.jpg">
+                    </div>
+                    <div class="profile-name">
+                            <div>{{this.name}}</div>
+                            <div style="font-size: medium;">{{this.username}}</div>
+                    </div>
+                    <div class="bio">   
+                       {{this.bio}}
+                    </div>
+                </div>
+                <div class="edit-options">
+                    <div>
+                        <!-- remove this from edit profile and add this to normal profile-->
+                        <a href="edit_profile.html" class="brown-link">Edit Profile</a>
+                    </div>
+                    <div>
+                        <a href="home_out.html" class="brown-link">Log Out</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                {{#if posts}}
+                {{#each posts}}
+                {{> post this}}
+                {{/each}}
+                {{/if}}
+            </div>        
+        </div>
