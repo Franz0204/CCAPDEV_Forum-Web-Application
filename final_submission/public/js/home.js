@@ -12,18 +12,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
     const imageInput = document.querySelector("#post-image-upload");
     const postForm = document.querySelector("#post-entry-box");
-    /*postInput.addEventListener("click",function(e) {
-        e.preventDefault();
-        let title = document.querySelector("#title-input").value;
-        let body = document.querySelector("#post-body-textarea").value;
-        if(validateField(title) && validateField(body)) {
-            let today = new Date();
-            let formatted = formatDate(today);
-            let p = new Post("00001","baen","Baen Baen",formatted,title,body); //will fix placeholders later
-            posts.push(p);
-            makePost(p);
-        }
-    })*/
+    
     postInput?.addEventListener("click", async(e) => {
         e.preventDefault();
         const postdata = new FormData(postForm);
@@ -32,7 +21,7 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let p = new Post("00001","Franz004","Francisco Dumas",formatted,title,body); //will fix placeholders later
+            let p = new Post("00001","MCruz03","Maria Cruz",formatted,title,body); //will fix placeholders later
             posts.push(p);
             makePost(p);
             let postobject = {
@@ -71,7 +60,7 @@ document.addEventListener("DOMContentLoaded",function() {
     function makePost(post) {
         let postHTML = $("<div>" +
         "<div>" +
-            "<div>" + "<img src='profile_assets/gojo_pfp.jpg'>" + "</div>" +
+            "<div>" + "<img class='post-user-pic'>" + "</div>" +
             "<div>" + 
                 "<div>" + "</div>" +
                 "<div>" + "</div>" +
@@ -105,11 +94,13 @@ document.addEventListener("DOMContentLoaded",function() {
             }
             $(this).addClass(classes[i]);
         })
+        let iconpath = "/profile_assets/" + post.id + ".jpg";
         $(postHTML).find(".post-box-header-username").append(rn);
         $(postHTML).find(".post-box-header-handle").append(handle);
         $(postHTML).find(".post-box-header-date").append(d);
         $(postHTML).find(".post-box-title").append(t);
         $(postHTML).find(".post-box-text").append(b);
+        $(postHTML).find(".post-user-pic").attr("src",iconpath);
         $("div#post-side").append(postHTML);
     }
 
