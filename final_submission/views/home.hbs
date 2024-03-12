@@ -4,21 +4,7 @@
     <script src="/static/js/home.js"></script>
 <title>Home</title>
 
-
-    <div id="overhead-bar">
-        <div id="header-logo"><a href="/home.html"><img id="logo" src="/generic_assets/CourseConvo.png"></a></div>
-        <div id="search-box">
-            <form>
-                <input type="text" id="search-form"/>
-                <input type="submit" value="Search" id="search-button" />
-            </form>
-        </div>
-        <div id="header-profile">
-            <!-- Alternate between Register/hyperlink to profile -->
-            <img class="profile" src="/profile_assets/eyes.jpg">
-            <a href="profile.html" class="white-link"><b>Profile</b></a>
-        </div>
-    </div>
+    {{> header}}
     <div id="page-content">
         <div id="left-side">
             <div id="top-post-list">
