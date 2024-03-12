@@ -1,23 +1,24 @@
-const dotenv = require('dotenv');
-dotenv.config();
-const express = require('express');
-const handlebars = require('express-handlebars');
-const path = require('path');
+import "dotenv/config";
+//const result = dotenv.config({path: './final_submission/.env'});
+console.log(process.env.MONGODB_URI);
+import { dirname } from "path";
+import { fileURLToPath } from 'url';
+// Web-app related packages
+import express from 'express';
+import exphbs from 'express-handlebars';
 
-
-import router from "./src/routers/index.js";
 import { connectToMongo } from "./src/db/conn.js";
+import router from "./src/routers/index.js";
 
-async function main() {
-    const __dirname = dirname(fileURLToPath(import.meta.url));
-    const app = express();
-    app.use(express.static(path.join(__dirname,'public')));
-    app.use(express.json());
-    app.use(router);
-    app.engine('hbs',handlebars.engine({extname: 'hbs'}));
-    app.set("view engine","hbs");
-    app.set("views","./views");
-    console.log("URI:" + process.env.MONGODB_URI);
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const app = express();
+app.use(express.static(__dirname + '/public'));
+app.use(express.json());
+app.use(router);
+app.engine('hbs',exphbs.engine({extname: 'hbs'}));
+app.set("view engine","hbs");
+app.set("views","./views");
+console.log("URI:" + process.env.MONGODB_URI);
     try {
         await connectToMongo();
         app.listen(process.env.SERVER_PORT, () => {
@@ -26,6 +27,3 @@ async function main() {
     }catch(err) {
         console.error(err);
     }
- }
-
- main();
