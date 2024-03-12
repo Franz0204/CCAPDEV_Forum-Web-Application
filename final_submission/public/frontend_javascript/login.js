@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
       function sendCredentialsToServer(username, password) {
        
-        fetch("/login", {
+        fetch("/go-login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

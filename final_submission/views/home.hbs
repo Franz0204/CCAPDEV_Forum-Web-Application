@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="overhead-bar">
-        <div id="header-logo"><a href="home.html"><img id="logo" src="generic_assets/CourseConvo.png"></a></div>
+        <div id="header-logo"><a href="/home.html"><img id="logo" src="/generic_assets/CourseConvo.png"></a></div>
         <div id="search-box">
             <form>
                 <input type="text" id="search-form"/>
@@ -18,7 +18,7 @@
         </div>
         <div id="header-profile">
             <!-- Alternate between Register/hyperlink to profile -->
-            <img class="profile" src="profile_assets/eyes.jpg">
+            <img class="profile" src="/profile_assets/eyes.jpg">
             <a href="profile.html" class="white-link"><b>Profile</b></a>
         </div>
     </div>
@@ -85,7 +85,11 @@
                     <input type="submit" id="submit-post" value="Submit post">
                 </form>
             </div>
-            
+            {{#if posts}}
+                {{#each posts}}
+                {{> post this}}
+                {{/each}}
+            {{/if}}
         </div>
     </div>
 </body>
