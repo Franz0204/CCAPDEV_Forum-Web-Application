@@ -50,3 +50,19 @@ document.addEventListener("DOMContentLoaded",function() {
   
 });
 
+
+// not sure abt this 
+app.post ('/register',(req,res) => {
+    const {username, email, password, handle} = req.body;
+
+    const newUser = {
+        id: Date.now().toString(),
+        username,
+        email,
+        password,
+        handle
+
+    }
+
+    usersData.push(newUser);
+});
