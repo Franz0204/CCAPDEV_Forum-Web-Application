@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const imageInput = document.querySelector("#post-image-upload");
     const postForm = document.querySelector("#post-entry-box");
     
+    
     postInput?.addEventListener("click", async(e) => {
         e.preventDefault();
         const postdata = new FormData(postForm);
