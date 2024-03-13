@@ -1,0 +1,38 @@
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Forum Web Application</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+  <script>src="js/login.js"</script>
+
+
+    <div class="container">
+        <div class="login-container">
+            <h2>Login</h2>
+        </div>
+
+        <div class="login-input-container">
+            <div class="login-header">
+            <h2></h2>
+            </div>
+            <form id="login-form" action ="/login" method = "post">
+            <label for="username">Email/Handle:</label>
+            <input type="text" id="username" name="username" required>
+
+
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div id="remember-container">
+                    
+                <label for="remember">
+                    <input type="checkbox" id="remember" name="remember"> Remember me
+                </label>
+                </div>
+                <p>Don't have an account? <a href="register.html">Sign up</a>.</p>
+            <button type="submit">Login</button>
+            <p> Didn't mean to login? <a href="home_out.html">Cancel</a>.</p>
+            </form>
+        </div>
+    </div>

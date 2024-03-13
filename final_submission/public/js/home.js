@@ -1,12 +1,14 @@
-const Post = function(id,username,name,date,title,body) {
+const Post = function(id,username,name,date,title,body,tags) {
     this.id = id;
     this.username = username;
     this.name = name;
     this.date = date;
     this.title = title;
     this.body = body;
+    this.tags = tags;
 }
 const posts = [];
+const currentUser = "MCruz03";
 
 document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
@@ -22,16 +24,20 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let p = new Post("00001","MCruz03","Maria Cruz",formatted,title,body); //will fix placeholders later
+            let postid = Date.now().toString + currentUser;
+            let tagstring = document.querySelector("#post-tags-input").value;
+            let tagarray = tagstring.split(",");
+            let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             makePost(p);
             let postobject = {
-                usid: p.id,
+                postid: p.id,
                 username: p.username,
                 name: p.name,
                 date: p.date,
                 title: p.title,
-                body: p.body
+                body: p.body,
+                tags: p.tags
             }
             let pjstring = JSON.stringify(postobject);
             try {

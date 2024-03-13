@@ -22,7 +22,8 @@ postRouter.post('/make-post', async (req,res) => {
             name: req.body.name,
             date: req.body.date,
             title: req.body.title,
-            body: req.body.body
+            body: req.body.body,
+            tags: req.body.tags
         })
         if(result.acknowledged) {
             res.sendStatus(200);

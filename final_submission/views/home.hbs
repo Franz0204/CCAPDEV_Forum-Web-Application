@@ -1,65 +1,17 @@
-<link href="/static/stylesheets/home-post.css" rel="stylesheet" type="text/css" media="all"/>   
+    <link href="/static/stylesheets/home-post.css" rel="stylesheet" type="text/css" media="all"/>   
     <link rel="stylesheet" href="/static/stylesheets/post-only.css" type="text/css" media="all"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/static/js/home.js"></script>
-<title>Home</title>
+    <title>Home</title>
 
-
-    <div id="overhead-bar">
-        <div id="header-logo"><a href="/home.html"><img id="logo" src="/generic_assets/CourseConvo.png"></a></div>
-        <div id="search-box">
-            <form>
-                <input type="text" id="search-form"/>
-                <input type="submit" value="Search" id="search-button" />
-            </form>
-        </div>
-        <div id="header-profile">
-            <!-- Alternate between Register/hyperlink to profile -->
-            <img class="profile" src="/profile_assets/eyes.jpg">
-            <a href="profile.html" class="white-link"><b>Profile</b></a>
-        </div>
-    </div>
+    {{> header}}
     <div id="page-content">
         <div id="left-side">
             <div id="top-post-list">
                 <div id="top-post-header">
                     Top Posts
                 </div>
-                <div class="post-thumb">
-                    <span class="post-thumb-pic"><img src="/static/profile_assets/gojo_pfp.jpg"></span>
-                    <div class="post-thumb-data">
-                        <div class="post-thumb-head"><a href="sample_post_1.html">{{titletop1}}</a></div>
-                        <div class="post-thumb-date">February 10, 2024</div>
-                    </div>
-                </div>
-                <div class="post-thumb">
-                    <span class="post-thumb-pic"><img src="profile_assets/garcia_pfp.jpg"></span>
-                    <div class="post-thumb-data">
-                        <div class="post-thumb-head"><a href="sample_post_2.html">{{titletop2}}</a></div>
-                        <div class="post-thumb-date">April 6, 2024</div>
-                    </div>
-                </div>
-                <div class="post-thumb">
-                    <span class="post-thumb-pic"><img src="profile_assets/pfp4.jpg"></span>
-                    <div class="post-thumb-data">
-                        <div class="post-thumb-head"><a href="sample_post_3.html">{{titletop3}}</a> </div>
-                        <div class="post-thumb-date">September 1, 2024</div>
-                    </div>
-                </div>
-                <div class="post-thumb">
-                    <span class="post-thumb-pic"><img src="profile_assets/pfp5.jpg"></span>
-                    <div class="post-thumb-data">
-                        <div class="post-thumb-head"><a href="sample_post_4.html">{{titletop4}}</a> </div>
-                        <div class="post-thumb-date">May 12, 2024</div>
-                    </div>
-                </div>
-                <div class="post-thumb">
-                    <span class="post-thumb-pic"><img src="profile_assets/gojo_pfp.jpg"></span>
-                    <div class="post-thumb-data">
-                        <div class="post-thumb-head"><a href="sample_post_5.html">{{titletop5}}</a> </div>
-                        <div class="post-thumb-date">February 10, 2024</div>
-                    </div>
-                </div>
+                {{#each topposts}} {{>top_post_single this}} {{/each}}
             </div>
         </div>
         <div id="post-side">
@@ -71,7 +23,7 @@
                     <div id="post-entry-body">
                         <textarea placeholder="Write something..." id="post-body-textarea"></textarea>
                         <div id="pic">
-                          <label for="post-image-upload" ><img src="generic_assets/camera.png" id="image-label"></label>  
+                          <label for="post-image-upload" ><img src="/static/generic_assets/camera.png" id="image-label"></label>  
                           <input
                             type="file"
                             id="post-image-upload"
@@ -79,6 +31,7 @@
                             accept=".jpg, .jpeg, .png" />
                         </div>
                     </div>
+                    <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags">
                     <input type="submit" id="submit-post" value="Submit post">
                 </form>
             </div>
