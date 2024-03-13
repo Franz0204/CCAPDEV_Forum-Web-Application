@@ -1,0 +1,31 @@
+    <title>Sign Up - Forum Web Application</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
+    <script>src = "js/register.js"</script>
+
+    <div class="container">
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+        </div>
+
+        <div class="register-container">
+            <div class="register-header">
+            
+            </div>
+            <form id="register-form" action ="/register" method = "post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="username">Email:</label>
+            <input type="text" id="email" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="username">Account Handle :</label>
+            <input type="text" id="handle" name="username" required>
+
+            <button type="submit" id="registerBtn">Register</button>
+            <p> Didn't mean to register? <a href="/home">Cancel</a>.</p>
+            </form>
+        </div>
+    </div>
