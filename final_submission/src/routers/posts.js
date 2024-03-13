@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
+import express from 'express';
 
 const postRouter = Router();
 const db = getDb();
 const posts = db.collection('posts');
 const profiles = db.collection('profiles');
 
+postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).toArray();
@@ -26,7 +28,8 @@ postRouter.post('/make-post', async (req,res) => {
             date: req.body.date,
             title: req.body.title,
             body: req.body.body,
-            tags: req.body.tags
+            tags: req.body.tags,
+            hasImage: req.body.hasImage
         })
         if(result.acknowledged) {
             res.sendStatus(200);
@@ -60,5 +63,6 @@ postRouter.get('/profiles/:username', async (req,res) => {
         res.redirect("/error");
     }
 });
+
 
 export default postRouter;

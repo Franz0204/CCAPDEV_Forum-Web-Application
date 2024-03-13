@@ -11,8 +11,9 @@
                 <div id="top-post-header">
                     Top Posts
                 </div>
-                {{#each topposts}} {{>top_post_single this}} {{/each}}
+                {{#each top-posts}} {{>top-post-single this}} {{/each}}
             </div>
+           
         </div>
         <div id="post-side">
             <div id="post-entry">
@@ -28,7 +29,7 @@
                             type="file"
                             id="post-image-upload"
                             name="post-image-upload"
-                            accept=".jpg, .jpeg />
+                            accept=".jpg, .jpeg" />
                         </div>
                     </div>
                     <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags">

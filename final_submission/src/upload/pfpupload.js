@@ -2,10 +2,10 @@ import multer from 'multer';
 
 const pfpstorage = multer.diskStorage({
     destination: (req,file,cb) => {
-        cb(null, './uploads/pfp');
+        cb(null, '/public/profile_assets');
     },
     filename: (req,file,cb) => {
-        cb(null, req.body.username);
+        cb(null, file.filename);
     }
 })
 

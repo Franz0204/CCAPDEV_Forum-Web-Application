@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let postid = Date.now().toString + currentUser;
+            let postid = Date.now().toString() + currentUser;
+            console.log(postid);
             let tagstring = document.querySelector("#post-tags-input").value;
             let tagarray = tagstring.split(",");
             let file = imageInput.files;
@@ -41,8 +42,8 @@ document.addEventListener("DOMContentLoaded",function() {
                 tags: p.tags
             }
 
-            if(file.length != 0) {
-                postobject[hasImage] = "1";
+            if(file.length > 0) {
+                postobject.hasImage = true;
             }
 
             let pjstring = JSON.stringify(postobject);
@@ -61,10 +62,11 @@ document.addEventListener("DOMContentLoaded",function() {
                 console.error(err);
             }
 
-            if(file.length != 0) {
+            if(file.length > 0) {
+                let imgname = p.id + ".jpg";
                 const formData = new FormData();
                 formData.append('file',file[0]);
-                formData.append('postid', p.id);
+                formData.append('filename', imgname);
                 const fileresponse = await fetch('/upload-post-image', {
                     method: 'POST',
                     body: formData
@@ -95,13 +97,13 @@ document.addEventListener("DOMContentLoaded",function() {
         "</div>" + 
         "<div>" + 
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/upvote.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/upvote.png'>" + "</span>" +
             "</div>" +
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/downvote.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/downvote.png'>" + "</span>" +
             "</div>" +
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/comment.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/comment.png'>" + "</span>" +
             "</div>" +
         "</div>" +
         "</div>")
@@ -117,7 +119,7 @@ document.addEventListener("DOMContentLoaded",function() {
             }
             $(this).addClass(classes[i]);
         })
-        let iconpath = "/profile_assets/" + post.id + ".jpg";
+        let iconpath = "/profile_assets/" + post.username + ".jpg";
         $(postHTML).find(".post-box-header-username").append(rn);
         $(postHTML).find(".post-box-header-handle").append(handle);
         $(postHTML).find(".post-box-header-date").append(d);

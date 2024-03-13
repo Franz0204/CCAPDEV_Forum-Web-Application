@@ -3,6 +3,7 @@ import registerRouter from './register.js';
 import postRouter from './posts.js';
 import searchRouter from './search.js';
 import editProfileRouter from './edit_profile.js';
+import uploadRouter from "./file_upload.js";
 //import loginRouter from './login.js';
 
 const router = Router();

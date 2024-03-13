@@ -9,8 +9,7 @@ import exphbs from 'express-handlebars';
 
 import { connectToMongo } from "./src/db/conn.js";
 import router from "./src/routers/index.js";
-import pfpupload from "./pfpupload.js";
-import postpicupload from "./post_pic_upload.js";
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -32,10 +31,4 @@ console.log("URI:" + process.env.MONGODB_URI);
         console.error(err);
     }
 
-app.post('/upload-post-image', upload.single('file'), (req,res) => {
-    res.send(200);
-});
-
-app.post('/upload-pfp', upload.single('file'), (req,res) => {
-    res.send(200);
-});
+    
