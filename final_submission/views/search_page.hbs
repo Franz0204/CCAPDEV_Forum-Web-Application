@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/static/stylesheets/profile.css" />
+<link rel="stylesheet" href="/static/stylesheets/profile-post-only.css" />
+
+{{> header}}
+<div id="page-content">
+    <div class="right-side">
+        {{#if posts}}
+        {{#each posts}}
+        {{> post this}}
+        {{/each}}
+        {{/if}}
+    </div>        
+</div>

@@ -2,37 +2,37 @@
 <link rel="stylesheet" href="/static/stylesheets/profile.css" />
 <link rel="stylesheet" href="/static/stylesheets/profile-post-only.css" />
 
-       {{> header}}
-        <div id="page-content">
-            <div id="left-side">
-                <div>
-                    <div class="profile-page">
-                            <!-- Apply Javascript to allow the button to upload a file -->
-                            <img class="pfp"  src="profile_assets/pfp.jpg">
-                    </div>
-                    <div class="profile-name">
-                            <div>{{this.name}}</div>
-                            <div style="font-size: medium;">{{this.username}}</div>
-                    </div>
-                    <div class="bio">   
-                       {{this.bio}}
-                    </div>
-                </div>
-                <div class="edit-options">
-                    <div>
-                        <!-- remove this from edit profile and add this to normal profile-->
-                        <a href="edit_profile.html" class="brown-link">Edit Profile</a>
-                    </div>
-                    <div>
-                        <a href="home_out.html" class="brown-link">Log Out</a>
-                    </div>
-                </div>
+{{> header}}
+<div id="page-content">
+    <div id="left-side">
+        <div>
+            <div class="profile-page">
+                    <!-- Apply Javascript to allow the button to upload a file -->
+                    <img class="pfp"  src="profile_assets/pfp.jpg">
             </div>
-            <div class="right-side">
-                {{#if posts}}
-                {{#each posts}}
-                {{> post this}}
-                {{/each}}
-                {{/if}}
-            </div>        
+            <div class="profile-name">
+                    <div>{{this.name}}</div>
+                    <div style="font-size: medium;">{{this.username}}</div>
+            </div>
+            <div class="bio">   
+                {{this.bio}}
+            </div>
         </div>
+        <div class="edit-options">
+            <div>
+                <!-- remove this from edit profile and add this to normal profile-->
+                <a href="/editProfile/{{this.username}}" class="brown-link">Edit Profile</a>
+            </div>
+            <div>
+                <a href="home_out.html" class="brown-link">Log Out</a>
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        {{#if posts}}
+        {{#each posts}}
+        {{> post this}}
+        {{/each}}
+        {{/if}}
+    </div>        
+</div>
