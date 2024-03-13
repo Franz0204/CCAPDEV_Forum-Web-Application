@@ -32,4 +32,8 @@ postRouter.post('/make-post', async (req,res) => {
     }
 });
 
+postRouter.get('/posts/:postID', async(req,res) => {
+    
+});
+
 export default postRouter;
