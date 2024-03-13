@@ -1,53 +1,61 @@
-const User = function (id, username, email, password, handle){
-
-    this.id = id;
+const User = function (username, email, password, handle, body){
     this.username = username;
     this.email = email;
     this.password = password;
-    this.handle = handle 
+    this.handle = handle;
+    this.body = body;
 };
 
 
 
 const users = [];
 
-document.addEventListener("DOMContentLoaded",function() {
+document.addEventListener("DOMContentLoaded", function () {
+    const userForm = document.querySelector("#register-form");
+
     const userInput = document.querySelector("#registerBtn");
-    
 
-
-    userInput.addEventListener("click", async function (e) {
+    userInput?.addEventListener("click", async function (e) {
         e.preventDefault();
-        let username = document.querySelector("#username").value;
-        let email = document.querySelector("#email").value;
-        let password = document.querySelector("#password").value;
-        let handle = document.querySelector("#handle").value;
-        if (validateField(username) && validateField(email) && validateField(password) && validateField(handle)) {
+
+        const formData = new FormData(userForm);
+
+        // Extract values from FormData object
+        const username = formData.get('username');
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const handle = formData.get('handle');
+        const body = formData.get('body'); // Assuming 'body' field exists
+
+        // Perform validation
+        if (validateField(body)) {
+            let u = new User("User1", username, email, password, handle, body);
+            users.push(u);
+            makeUser(u);
+
+            let registerobject = {
+                username: u.username,
+                email: u.email,
+                password: u.password,
+                handle: u.handle,
+                body: u.body
+            }
+
+            let rgstring = JSON.stringify(registerobject);
             try {
                 const response = await fetch('/make-user', {
                     method: 'POST',
+                    body: rgstring,
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        username,
-                        email,
-                        password,
-                        handle
-                    })
                 });
 
                 if (response.ok) {
-                    alert('User registered successfully!');
-                    document.querySelector("#username").value = "";
-                    document.querySelector("#email").value = "";
-                    document.querySelector("#password").value = "";
-                    document.querySelector("#handle").value = "";
-                } else {
-                    console.error('Failed to register user');
+                    console.log('success');
                 }
-            } catch (error) {
-                console.error('Error:', error);
+            } catch (err) {
+                console.error(err);
             }
         }
     });

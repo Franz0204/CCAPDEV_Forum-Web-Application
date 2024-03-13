@@ -16,7 +16,7 @@ registerRouter.get('/register', async (req,res) => {
 
 
 
-registerRouter.post('/register', async (req,res) => {
+registerRouter.post('/make-user', async (req,res) => {
     console.log(req.body);
     try {
         const result = await credentials.insertOne({
