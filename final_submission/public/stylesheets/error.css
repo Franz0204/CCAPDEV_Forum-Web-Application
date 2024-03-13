@@ -1,0 +1,16 @@
+body {
+    background-color: #43766C;
+}
+
+.error {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+}
+.error > img {
+    background-color: #43766C;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+

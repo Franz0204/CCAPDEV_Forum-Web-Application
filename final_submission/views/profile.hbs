@@ -8,7 +8,7 @@
         <div>
             <div class="profile-page">
                     <!-- Apply Javascript to allow the button to upload a file -->
-                    <img class="pfp"  src="profile_assets/pfp.jpg">
+                    <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
             </div>
             <div class="profile-name">
                     <div>{{this.name}}</div>
@@ -33,6 +33,8 @@
         {{#each posts}}
         {{> post this}}
         {{/each}}
+        {{else}}
+            <div class="no-posts">No posts to show...</div>
         {{/if}}
     </div>        
 </div>

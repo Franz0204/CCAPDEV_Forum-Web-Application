@@ -14,4 +14,12 @@ searchRouter.get('/search', async (req,res) => {
     });
 });
 
+searchRouter.get('/tagged/:tag', async (req,res) => {
+    const postsArr = await posts.find({tags:req.params.tag}).toArray();
+    res.render("search_page", {
+        title: "Search",
+        posts: postsArr
+    });
+})
+
 export default searchRouter;

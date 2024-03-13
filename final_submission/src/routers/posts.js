@@ -5,6 +5,8 @@ import { ObjectId } from 'mongodb';
 const postRouter = Router();
 const db = getDb();
 const posts = db.collection('posts');
+const profiles = db.collection('profiles');
+
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).toArray();
@@ -35,6 +37,27 @@ postRouter.post('/make-post', async (req,res) => {
 
 postRouter.get('/posts/:postID', async(req,res) => {
     
+});
+
+const profile = db.collection('profiles');
+
+postRouter.get('/profiles/:username', async (req,res) => {
+    var user = req.params.username;
+    const profilesArr = await profiles.find({"username":user}).toArray();
+    const postsArr = await posts.find({"username":user}).toArray();
+    if (profilesArr.length > 0){
+        const profileobject = {"username":user,"name":profilesArr[0].name,"bio":profilesArr[0].bio}
+        res.render("profile", {
+            title: "Profile",
+            name: profileobject.name,
+            username: profileobject.username,
+            bio: profileobject.bio,
+            posts: postsArr
+        });
+    }
+    else {
+        res.redirect("/error");
+    }
 });
 
 export default postRouter;

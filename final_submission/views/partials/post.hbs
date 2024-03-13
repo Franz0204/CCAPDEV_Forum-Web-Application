@@ -1,16 +1,16 @@
 
 <div class="post-box">
-                    <a href="/posts/{{this._id}}"><div class="post-box-header"></a>
-                        <div class="post-box-header-icon"><img src="/static/profile_assets/{{this.username}}.jpg"></div>
+                    <a href="/posts/{{this._id}}"><div class="post-box-header">
+                       <a href="/profiles/{{this.username}}>" <div class="post-box-header-icon"><img src="/static/profile_assets/{{this.username}}.jpg"></div></a>
                         <div class="post-box-header-data-container">
                             <div class="post-box-header-username">{{this.name}}</div>
                             <div class="post-box-header-handle">{{this.username}}</div>
                         </div>
                         <div class="post-box-header-date">{{this.date}}</div>
-                    </div>
+                    </div></a>
                     <div class="post-box-body">
                         <div class="post-box-title">{{this.title}}</div>
-                        <hr class="title-divider">
+                        <hr class="title-divider"/>
                         <div class="post-box-text">{{this.body}} {{#if this.tags}} {{#each this.tags}} {{> tag this}} {{/each}} {{/if}}</div>
                     </div>
                     <div class="post-box-footer">
