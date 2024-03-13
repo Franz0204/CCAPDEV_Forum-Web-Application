@@ -20,6 +20,7 @@ postRouter.post('/make-post', async (req,res) => {
     console.log(req.body);
     try {
         const result = await posts.insertOne({
+            postid: req.body.postid,
             username: req.body.username,
             name: req.body.name,
             date: req.body.date,

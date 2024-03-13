@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded",function() {
             let postid = Date.now().toString + currentUser;
             let tagstring = document.querySelector("#post-tags-input").value;
             let tagarray = tagstring.split(",");
+            let file = imageInput.files;
             let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             makePost(p);
@@ -39,6 +40,11 @@ document.addEventListener("DOMContentLoaded",function() {
                 body: p.body,
                 tags: p.tags
             }
+
+            if(file.length != 0) {
+                postobject[hasImage] = "1";
+            }
+
             let pjstring = JSON.stringify(postobject);
             try {
                 const response = await fetch('/make-post', {
@@ -53,6 +59,16 @@ document.addEventListener("DOMContentLoaded",function() {
                 }
             }catch(err) {
                 console.error(err);
+            }
+
+            if(file.length != 0) {
+                const formData = new FormData();
+                formData.append('file',file[0]);
+                formData.append('postid', p.id);
+                const fileresponse = await fetch('/upload-post-image', {
+                    method: 'POST',
+                    body: formData
+                });
             }
         }
     });
