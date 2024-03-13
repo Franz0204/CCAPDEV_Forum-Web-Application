@@ -14,4 +14,24 @@ registerRouter.get('/register', async (req,res) => {
     });
 });
 
+
+
+registerRouter.post('/register', async (req,res) => {
+    console.log(req.body);
+    try {
+        const result = await credentials.insertOne({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            handle:req.body.handle,
+            body: req.body.body
+        })
+        if(result.acknowledged) {
+            res.sendStatus(200);
+        }
+    }catch(err) {
+        console.error(err);
+    }
+});
+
 export default registerRouter;

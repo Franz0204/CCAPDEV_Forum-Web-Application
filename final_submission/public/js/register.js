@@ -16,36 +16,43 @@ document.addEventListener("DOMContentLoaded",function() {
     
 
 
-    userInput.addEventListener("click", function (e) {
+    userInput.addEventListener("click", async function (e) {
         e.preventDefault();
         let username = document.querySelector("#username").value;
         let email = document.querySelector("#email").value;
         let password = document.querySelector("#password").value;
         let handle = document.querySelector("#handle").value;
-        if(validateField(username) && validateField(email) && validateField(password) & validateField(handle)) {
-            let userId = Date.now().toString();
+        if (validateField(username) && validateField(email) && validateField(password) && validateField(handle)) {
+            try {
+                const response = await fetch('/make-user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username,
+                        email,
+                        password,
+                        handle
+                    })
+                });
 
-            let newUser = new User(userId, username, email, pasword, handle);
-            users.push(newUser);
- 
-            const usersJSON = JSON.stringify(users,null, 2);
-            
-           
-
-            document.querySelector("#username").value = "";
-            document.querySelector("#email").value = "";
-            document.querySelector("#password").value = "";
-            document.querySelector("#handle").value = "";
-        
-
-        alert('User registered successfully!');
+                if (response.ok) {
+                    alert('User registered successfully!');
+                    document.querySelector("#username").value = "";
+                    document.querySelector("#email").value = "";
+                    document.querySelector("#password").value = "";
+                    document.querySelector("#handle").value = "";
+                } else {
+                    console.error('Failed to register user');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         }
     });
 
-
     function validateField(value) {
-       return value.trim() !== "";
+        return value.trim() !== "";
     }
-
-  
 });
