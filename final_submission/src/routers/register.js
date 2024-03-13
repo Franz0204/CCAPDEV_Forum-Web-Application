@@ -7,7 +7,9 @@ const db = getDb();
 const credentials = db.collection('credentials');
 
 registerRouter.get('/register', async (req,res) => {
+    console.log("test")
     const credential = await credentials.find({}).toArray();
+    
     res.render("register", {
         title: "Home",
         posts: credential
@@ -17,21 +19,48 @@ registerRouter.get('/register', async (req,res) => {
 
 
 registerRouter.post('/make-user', async (req,res) => {
+    console.log("Test")
     console.log(req.body);
+    //Check credentials if fields in body already exist
+    /*
+    if(credentials exist in db) {
+        res.json({success: false})
+    }
+    else {
+        try {
+            const result = await credentials.insertOne({
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+                handle:req.body.handle
+            })
+            if(result.acknowledged) {
+                res.json({success: true})
+            }
+        }catch(err) {
+            console.error(err);
+        }
+        }
+    */
     try {
         const result = await credentials.insertOne({
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            handle:req.body.handle,
-            body: req.body.body
+            handle:req.body.handle
         })
         if(result.acknowledged) {
-            res.sendStatus(200);
+            console.log("acknowledged")
+            res.redirect("/login")
         }
     }catch(err) {
         console.error(err);
     }
+    
 });
 
+registerRouter.get('/login', async (req, res) => {
+
+    res.render("login")
+})
 export default registerRouter;
