@@ -1,4 +1,4 @@
-const fd = require("form-data");
+//const fd = require("form-data");
 const Post = function(id,username,name,date,title,body,tags) {
     this.id = id;
     this.username = username;
@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded",function() {
             let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             console.log("step 2");
-            makePost(p);
             let postobject = {
                 postid: p.id,
                 username: p.username,
@@ -60,6 +59,7 @@ document.addEventListener("DOMContentLoaded",function() {
                 });
                 if (response.status == 200) {
                     console.log('success');
+                    makePost(p);
                 }
             }catch(err) {
                 console.error(err);
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded",function() {
             }
             $(this).addClass(classes[i]);
         })
-        let iconpath = "/profile_assets/" + post.username + ".jpg";
+        let iconpath = "/static/profile_assets/" + post.username + ".jpg";
         $(postHTML).find(".post-box-header-username").append(rn);
         $(postHTML).find(".post-box-header-handle").append(handle);
         $(postHTML).find(".post-box-header-date").append(d);

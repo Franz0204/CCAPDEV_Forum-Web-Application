@@ -1,3 +1,10 @@
+<link rel="stylesheet" href="/static/stylesheets/home-post.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/static/stylesheets/post-only.css" type="text/css" media="all"/>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/static/js/post.js"></script>
+
+<input id="postid" value="{{this.post.postid}}" type="hidden">
+
 {{>header}}
 <div id="page-content">
     <div id="left-side">
@@ -7,20 +14,25 @@
                 </div>
                 {{#each top-posts}} {{>top-post-single this}} {{/each}}
             </div>
-           
-        </div>
-    {{>post this.post}}
-    <div id="comment-entry">
-                <div id="comment-entry-box">
-                    <textarea placeholder="Write a comment..."></textarea>
-                </div>
-                <div id="comment-submit">Submit comment</div>
     </div>
-    <div id="comment-container">
+    <div id="post-side">
+        {{>post this.post}}
+
+        <div id="comment-container">
         {{#if comments}}
-            {{#each comments}}
+            
+                {{#each comments}}
                 {{>comment this}}
             {{/each}}
+            
+            
         {{/if}}
+        </div>
+                <form id="comment-entry">
+                    <div id="comment-entry-box">
+                        <textarea placeholder="Write a comment..." id="comment-text"></textarea>
+                    </div>
+                    <button type="submit" id="comment-submit">Submit comment </button>
+                </form>
     </div>
 </div>

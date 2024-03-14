@@ -7,6 +7,7 @@ const postRouter = Router();
 const db = getDb();
 const posts = db.collection('posts');
 const profiles = db.collection('profiles');
+const comments = db.collection('comments');
 
 postRouter.use(express.json());
 
@@ -48,6 +49,27 @@ postRouter.get('/posts/:postID', async(req,res) => {
             post: postArr[0],
             comments: commentArr
         })
+    }
+    else {
+        res.redirect('/error');
+    }
+});
+
+postRouter.post('/make-comment', async(req,res) => {
+    try {
+        const result = await comments.insertOne({
+            original_postid: req.body.original_postid,
+            commentid: req.body.commentid,
+            username: req.body.username,
+            name: req.body.name,
+            date: req.body.date,
+            text: req.body.text
+        });
+        if(result.acknowledged) {
+            res.sendStatus(200);
+        }
+    }catch(err) {
+        res.sendStatus(500);
     }
 });
 
