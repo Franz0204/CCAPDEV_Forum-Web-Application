@@ -5,6 +5,7 @@ import { Router } from 'express';
 const uploadRouter = Router();
 
 uploadRouter.post('/upload-post-image', postpicupload.single('file'), (req,res) => {
+        console.log(req);
         res.send(200);
     });
     

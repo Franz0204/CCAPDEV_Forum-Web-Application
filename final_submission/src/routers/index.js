@@ -12,6 +12,7 @@ router.use(registerRouter);
 router.use(postRouter);
 router.use(searchRouter);
 router.use(editProfileRouter);
+router.use(uploadRouter);
 
 router.get('/', function(req,res) {
     res.redirect('/home');

@@ -65,8 +65,7 @@ document.addEventListener("DOMContentLoaded",function() {
             if(file.length > 0) {
                 let imgname = p.id + ".jpg";
                 const formData = new FormData();
-                formData.append('file',file[0]);
-                formData.append('filename', imgname);
+                formData.append('file',file[0],imgname);
                 const fileresponse = await fetch('/upload-post-image', {
                     method: 'POST',
                     body: formData
