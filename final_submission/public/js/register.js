@@ -5,8 +5,6 @@ const User = function (username, email, password, handle){
     this.handle = handle;
 };
 
-
-
 const users = [];
 
 document.addEventListener("DOMContentLoaded", function () {

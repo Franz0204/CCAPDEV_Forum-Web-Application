@@ -8,9 +8,11 @@
                     <input type="submit" value="Search" class="search-style"/>
                 </form>
             </div>
-            <div class="header-profile">
+            <div class="header-profile" >
                 <!-- Alternate between Register/hyperlink to profile -->
                 <img class="profile" src="/static/generic_assets/MCruz03.jpg">
-                <a href="/profiles/MCruz03" class="white-link"><b>Profile</b></a>
+                <a href="/profiles/{{this.username}}" class="white-link"><b>Profile</b></a>
+                <a href="/login" class="white-link" hidden><b>Login/</b></a>
+                <a href="/register" class="white-link" hidden><b>Register</b></a>
             </div>
         </div>

@@ -3,6 +3,7 @@ import registerRouter from './register.js';
 import postRouter from './posts.js';
 import searchRouter from './search.js';
 import editProfileRouter from './edit_profile.js';
+import testRouter from './test.js';
 //import loginRouter from './login.js';
 
 const router = Router();
@@ -11,6 +12,7 @@ router.use(registerRouter);
 router.use(postRouter);
 router.use(searchRouter);
 router.use(editProfileRouter);
+router.use(testRouter);
 
 router.get('/', function(req,res) {
     res.redirect('/home');
