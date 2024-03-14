@@ -7,26 +7,32 @@
     {{> header}}
     <div id="page-content">
         <div id="left-side">
-           {{> top_post}}
+            <div id="top-post-list">
+                <div id="top-post-header">
+                    Top Posts
+                </div>
+                {{#each top-posts}} {{>top-post-single this}} {{/each}}
+            </div>
+           
         </div>
         <div id="post-side">
             <div id="post-entry">
-                <form id="post-entry-box" method="post" name="postBox">
+                <form id="post-entry-box" name="postBox">
                     <div id="title-enter">
                         <input type="text" placeholder="Enter a title..." id="title-input">
                     </div>
                     <div id="post-entry-body">
                         <textarea placeholder="Write something..." id="post-body-textarea"></textarea>
                         <div id="pic">
-                          <label for="post-image-upload" ><img src="generic_assets/camera.png" id="image-label"></label>  
+                          <label for="post-image-upload" ><img src="/static/generic_assets/camera.png" id="image-label"></label>  
                           <input
                             type="file"
                             id="post-image-upload"
-                            name="post-image-upload"
-                            accept=".jpg, .jpeg, .png" />
+                            accept=".jpg, .jpeg" />
                         </div>
                     </div>
-                    <input type="submit" id="submit-post" value="Submit post">
+                    <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags">
+                    <input type="submit" id="submit-post" value="Submit post"/>
                 </form>
             </div>
             {{#if posts}}

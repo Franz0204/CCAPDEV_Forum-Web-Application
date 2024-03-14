@@ -165,6 +165,16 @@ a:hover {
     background-color: #F8FAE5;
 }
 
+#post-tags-input {
+    color: #B19470;
+    margin: 10px;
+    font-family: Arial;
+    font-size: large;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 95%;
+}
+
 #submit-post {
     margin: 10px;
     color: #76453B;
