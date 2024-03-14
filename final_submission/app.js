@@ -10,6 +10,7 @@ import exphbs from 'express-handlebars';
 import { connectToMongo } from "./src/db/conn.js";
 import router from "./src/routers/index.js";
 
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use('/static',express.static(__dirname + '/public'));
@@ -29,3 +30,5 @@ console.log("URI:" + process.env.MONGODB_URI);
     }catch(err) {
         console.error(err);
     }
+
+    

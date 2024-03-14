@@ -1,3 +1,4 @@
+const fd = require("form-data");
 const Post = function(id,username,name,date,title,body,tags) {
     this.id = id;
     this.username = username;
@@ -18,17 +19,21 @@ document.addEventListener("DOMContentLoaded",function() {
     
     postInput?.addEventListener("click", async(e) => {
         e.preventDefault();
-        const postdata = new FormData(postForm);
+        e.stopImmediatePropagation();
         let title = document.querySelector("#title-input").value;
         let body = document.querySelector("#post-body-textarea").value;
+        console.log("step 1");
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let postid = Date.now().toString + currentUser;
+            let postid = Date.now().toString() + currentUser;
+            console.log(postid);
             let tagstring = document.querySelector("#post-tags-input").value;
             let tagarray = tagstring.split(",");
+            let file = imageInput.files;
             let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
+            console.log("step 2");
             makePost(p);
             let postobject = {
                 postid: p.id,
@@ -39,6 +44,11 @@ document.addEventListener("DOMContentLoaded",function() {
                 body: p.body,
                 tags: p.tags
             }
+
+            if(file.length > 0) {
+                postobject.hasImage = true;
+            }
+
             let pjstring = JSON.stringify(postobject);
             try {
                 const response = await fetch('/make-post', {
@@ -54,7 +64,21 @@ document.addEventListener("DOMContentLoaded",function() {
             }catch(err) {
                 console.error(err);
             }
+            console.log("step 3");
+
+            if(file.length > 0) {
+                let imgname = p.id + ".jpg";
+                const formData = new fd();
+                formData.append('file',file[0],imgname);
+                formData.append('name','file');
+                const fileresponse = await fetch('/upload-post-image', {
+                    method: 'POST',
+                    body: formData
+                });
+            }
+            console.log("step 4");
         }
+
     });
 
     function validateField(value) {
@@ -79,13 +103,13 @@ document.addEventListener("DOMContentLoaded",function() {
         "</div>" + 
         "<div>" + 
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/upvote.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/upvote.png'>" + "</span>" +
             "</div>" +
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/downvote.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/downvote.png'>" + "</span>" +
             "</div>" +
             "<div>" +
-                "<span>" + "<img class='note-sprite' src='generic_assets/comment.png'>" + "</span>" +
+                "<span>" + "<img class='note-sprite' src='/static/generic_assets/comment.png'>" + "</span>" +
             "</div>" +
         "</div>" +
         "</div>")
@@ -101,7 +125,7 @@ document.addEventListener("DOMContentLoaded",function() {
             }
             $(this).addClass(classes[i]);
         })
-        let iconpath = "/profile_assets/" + post.id + ".jpg";
+        let iconpath = "/profile_assets/" + post.username + ".jpg";
         $(postHTML).find(".post-box-header-username").append(rn);
         $(postHTML).find(".post-box-header-handle").append(handle);
         $(postHTML).find(".post-box-header-date").append(d);

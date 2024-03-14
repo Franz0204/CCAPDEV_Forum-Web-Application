@@ -1,9 +1,7 @@
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Forum Web Application</title>
-  <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
-  <script>src="js/login.js"</script>
+  <link rel="stylesheet" type="text/css" href="/static/stylesheets/login.css">
+  <script src="static/js/login.js"></script>
 
 
     <div class="container">
@@ -16,7 +14,7 @@
             <h2></h2>
             </div>
             <form id="login-form" action ="/login" method = "post">
-            <label for="username">Email/Handle:</label>
+            <label for="username">Handle:</label>
             <input type="text" id="username" name="username" required>
 
 
@@ -30,9 +28,9 @@
                     <input type="checkbox" id="remember" name="remember"> Remember me
                 </label>
                 </div>
-                <p>Don't have an account? <a href="register.html">Sign up</a>.</p>
-            <button type="submit">Login</button>
-            <p> Didn't mean to login? <a href="home_out.html">Cancel</a>.</p>
+                <p>Don't have an account? <a href="/register">Sign up</a>.</p>
+            <button type="submit" id ="loginBtn">Login</button>
+            <p> Didn't mean to login? <a href="/home">Cancel</a>.</p>
             </form>
         </div>
     </div>

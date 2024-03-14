@@ -14,7 +14,7 @@ router.use(searchRouter);
 router.use(editProfileRouter);
 router.use(testRouter);
 
-router.get('/', function(req,res) {
+router.get('/', function(_req,res) {
     res.redirect('/home');
 });
 

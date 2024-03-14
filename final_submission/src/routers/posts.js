@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
+import express from 'express';
 
 const postRouter = Router();
 const db = getDb();
 const posts = db.collection('posts');
 const profiles = db.collection('profiles');
 
+postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).toArray();
@@ -20,12 +22,14 @@ postRouter.post('/make-post', async (req,res) => {
     console.log(req.body);
     try {
         const result = await posts.insertOne({
+            postid: req.body.postid,
             username: req.body.username,
             name: req.body.name,
             date: req.body.date,
             title: req.body.title,
             body: req.body.body,
-            tags: req.body.tags
+            tags: req.body.tags,
+            hasImage: req.body.hasImage
         })
         if(result.acknowledged) {
             res.sendStatus(200);
@@ -36,7 +40,15 @@ postRouter.post('/make-post', async (req,res) => {
 });
 
 postRouter.get('/posts/:postID', async(req,res) => {
-    
+    var postid = req.params.postID;
+    const postArr = await posts.find({"postid":postid}).toArray();
+    if(postArr.length > 0) {
+        const commentArr = await comments.find({"original_postid":postid}).toArray();
+        res.render("post_page", {
+            post: postArr[0],
+            comments: commentArr
+        })
+    }
 });
 
 const profile = db.collection('profiles');
@@ -59,5 +71,6 @@ postRouter.get('/profiles/:username', async (req,res) => {
         res.redirect("/error");
     }
 });
+
 
 export default postRouter;

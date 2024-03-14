@@ -1,52 +1,45 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("login-form");
-  
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-  
-      // Get input values
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-  
-      // Perform basic validation
-      if (validateField(username) && validateField(password)) {
-        // Send the credentials to the server for further validation
-        sendCredentialsToServer(username, password);
-      } else {
-        alert("Please enter valid credentials.");
-      }
-    });
+  const loginBtn = document.querySelector("#loginBtn");
 
-    function validateField(value) {
-        return value.trim() !== "";
+  loginBtn.addEventListener("click", async function (e) {
+      e.preventDefault();
+
+      // Get input values
+      const handle = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Perform basic validation
+      if (validateField(handle) && validateField(password)) {
+          // Send the credentials to the server for further validation
+          sendCredentialsToServer(handle, password);
+      } else {
+          alert("Please enter valid credentials.");
       }
-    
-      function sendCredentialsToServer(username, password) {
-       
-        fetch("/go-login", {
+  });
+
+  function validateField(value) {
+      return value.trim() !== "";
+  }
+
+  function sendCredentialsToServer(handle, password) {
+      fetch("/go-login", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+              "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username, password }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-        
-            console.log(data);
-           
-            if (data.success) {
+          body: JSON.stringify({ handle, password }),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log(data);
+          if (data.success) {
               window.location.href = "/home";
-            } else {
+          } else {
               alert("Invalid credentials. Please try again.");
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      }
-
-
+          }
+      })
+      .catch((error) => {
+          console.error("Error:", error);
+      });
+  }
 });

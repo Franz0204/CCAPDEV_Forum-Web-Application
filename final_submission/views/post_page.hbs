@@ -1,0 +1,26 @@
+{{>header}}
+<div id="page-content">
+    <div id="left-side">
+            <div id="top-post-list">
+                <div id="top-post-header">
+                    Top Posts
+                </div>
+                {{#each top-posts}} {{>top-post-single this}} {{/each}}
+            </div>
+           
+        </div>
+    {{>post this.post}}
+    <div id="comment-entry">
+                <div id="comment-entry-box">
+                    <textarea placeholder="Write a comment..."></textarea>
+                </div>
+                <div id="comment-submit">Submit comment</div>
+    </div>
+    <div id="comment-container">
+        {{#if comments}}
+            {{#each comments}}
+                {{>comment this}}
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
