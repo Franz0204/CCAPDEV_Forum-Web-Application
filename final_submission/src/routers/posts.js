@@ -40,7 +40,15 @@ postRouter.post('/make-post', async (req,res) => {
 });
 
 postRouter.get('/posts/:postID', async(req,res) => {
-    
+    var postid = req.params.postID;
+    const postArr = await posts.find({"postid":postid}).toArray();
+    if(postArr.length > 0) {
+        const commentArr = await comments.find({"original_postid":postid}).toArray();
+        res.render("post_page", {
+            post: postArr[0],
+            comments: commentArr
+        })
+    }
 });
 
 const profile = db.collection('profiles');

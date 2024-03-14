@@ -1,11 +1,9 @@
 import multer from 'multer';
 
 const post_storage = multer.diskStorage({
-    destination: (req,file,cb) => {
-        cb(null, '../../public/post_images');
-    },
-    filename: (req,file,cb) => {
-        cb(null, file.filename);
+    destination: "../../public/post_images",
+    filename: function (req,file,cb) {
+        cb(null, req.file.filename);
     }
 })
 

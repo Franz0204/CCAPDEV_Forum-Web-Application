@@ -4,8 +4,8 @@ import { Router } from 'express';
 
 const uploadRouter = Router();
 
-uploadRouter.post('/upload-post-image', postpicupload.single('file'), (req,res) => {
-        console.log(req);
+uploadRouter.post('/upload-post-image', postpicupload.single('file'), function (req,res) {
+        console.log(req.body);
         res.send(200);
     });
     

@@ -17,7 +17,7 @@
         </div>
         <div id="post-side">
             <div id="post-entry">
-                <form id="post-entry-box" method="post" name="postBox">
+                <form id="post-entry-box" name="postBox">
                     <div id="title-enter">
                         <input type="text" placeholder="Enter a title..." id="title-input">
                     </div>
@@ -28,12 +28,11 @@
                           <input
                             type="file"
                             id="post-image-upload"
-                            name="post-image-upload"
                             accept=".jpg, .jpeg" />
                         </div>
                     </div>
                     <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags">
-                    <input type="submit" id="submit-post" value="Submit post">
+                    <input type="submit" id="submit-post" value="Submit post"/>
                 </form>
             </div>
             {{#if posts}}

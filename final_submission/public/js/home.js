@@ -1,3 +1,4 @@
+const fd = require("form-data");
 const Post = function(id,username,name,date,title,body,tags) {
     this.id = id;
     this.username = username;
@@ -18,9 +19,10 @@ document.addEventListener("DOMContentLoaded",function() {
     
     postInput?.addEventListener("click", async(e) => {
         e.preventDefault();
-        const postdata = new FormData(postForm);
+        e.stopImmediatePropagation();
         let title = document.querySelector("#title-input").value;
         let body = document.querySelector("#post-body-textarea").value;
+        console.log("step 1");
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded",function() {
             let file = imageInput.files;
             let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
+            console.log("step 2");
             makePost(p);
             let postobject = {
                 postid: p.id,
@@ -61,17 +64,21 @@ document.addEventListener("DOMContentLoaded",function() {
             }catch(err) {
                 console.error(err);
             }
+            console.log("step 3");
 
             if(file.length > 0) {
                 let imgname = p.id + ".jpg";
-                const formData = new FormData();
+                const formData = new fd();
                 formData.append('file',file[0],imgname);
+                formData.append('name','file');
                 const fileresponse = await fetch('/upload-post-image', {
                     method: 'POST',
                     body: formData
                 });
             }
+            console.log("step 4");
         }
+
     });
 
     function validateField(value) {
