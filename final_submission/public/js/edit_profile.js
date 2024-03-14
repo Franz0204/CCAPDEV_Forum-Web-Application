@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cancelButton?.addEventListener("click", function () {
     console.log("test");
-    const username = document.getElementById('username').value; 
-    window.location.href = '/home'; 
+    //const username = document.getElementById('username').value; 
+    window.location.href = '/profiles/MCruz03'; 
 });
 });
