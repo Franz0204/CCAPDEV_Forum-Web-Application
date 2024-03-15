@@ -10,6 +10,23 @@ document.addEventListener("DOMContentLoaded", function () {
         pfpInput.value = null;
     });
 
+    pfpInput.addEventListener("change", async function (e) {
+        let fil = this.files;
+        let user = document.querySelector("#usnameid").value;
+        let pfpfilename = user + ".jpg";
+        const pfpForm = new FormData();
+        pfpForm.append("filename",pfpfilename);
+        pfpForm.append("file",fil[0],pfpfilename);
+        const response = await fetch('/upload-pfp', {
+            method:'POST',
+            body: pfpForm
+        });
+        if(response.status === 200) {
+            let url = window.URL.createObjectURL(fil[0]);
+            $(".pfp").attr("src",url); //todo: add html canvas element and image cropping
+        }
+    })
+
     saveButton?.addEventListener("click", async function (e) {
         e.preventDefault();
         const updatedUser = {
