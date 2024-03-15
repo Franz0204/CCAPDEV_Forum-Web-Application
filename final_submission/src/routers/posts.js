@@ -13,10 +13,7 @@ postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).sort({_id:-1}).toArray();
-    const sample_pipeline = [
-        {$sample:{size:5}}
-    ];
-    const top = posts.aggregate(sample_pipeline).toArray();
+    const top = await posts.find({}).sort({_id:-1}).limit(5).toArray();
     res.render("home", {
         title: "Home",
         posts: postsArr,
@@ -48,11 +45,13 @@ postRouter.post('/make-post', async (req,res) => {
 postRouter.get('/posts/:postID', async(req,res) => {
     var postid = req.params.postID;
     const postArr = await posts.find({"postid":postid}).toArray();
+    const top = await posts.find({}).sort({_id:-1}).limit(5).toArray();
     if(postArr.length > 0) {
         const commentArr = await comments.find({"original_postid":postid}).sort({_id:-1}).toArray();
         res.render("post_page", {
             post: postArr[0],
-            comments: commentArr
+            comments: commentArr,
+            topposts: top
         })
     }
     else {
