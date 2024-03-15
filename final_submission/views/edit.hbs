@@ -9,7 +9,13 @@
         <div>
             <div class="profile-page">
                     <!-- Apply Javascript to allow the button to upload a file -->
-                    <img class="icon-edit" src="/static/generic_assets/edit.png">
+                    <form id="pfp-input">
+                        <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" class="icon-edit"></label>  
+                          <input
+                            type="file"
+                            id="pfp-image-upload"
+                            accept=".jpg, .jpeg" hidden />
+                    </form>
                     <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
             </div>
             <div class="profile-name">
