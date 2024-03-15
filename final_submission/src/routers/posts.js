@@ -13,9 +13,14 @@ postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await posts.find({}).sort({_id:-1}).toArray();
+    const sample_pipeline = [
+        {$sample:{size:5}}
+    ];
+    const top = posts.aggregate(sample_pipeline).toArray();
     res.render("home", {
         title: "Home",
-        posts: postsArr
+        posts: postsArr,
+        topposts: top
     });
 });
 

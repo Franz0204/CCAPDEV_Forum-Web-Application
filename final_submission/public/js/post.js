@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }catch(err) {
                 console.error(err);
             }
+            document.querySelector("#comment-text").value = "";
         }
     }, true);
 
