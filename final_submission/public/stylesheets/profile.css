@@ -116,12 +116,12 @@ html, body {
     text-align: center;
 }
 
-.icon-edit{
+#icon-edit{
     width: 16px; 
     height: 16px; 
 }
 
-.icon-edit:hover{
+#icon-edit:hover{
     width: 16px; 
     height: 16px;
 }

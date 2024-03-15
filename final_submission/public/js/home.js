@@ -166,6 +166,11 @@ document.addEventListener("DOMContentLoaded",function() {
         let formattedDate = months[date.getMonth()] + " " + date.getDate().toString().padStart(2,0) + ", " + date.getFullYear().toString();
         return formattedDate;
     }
+
+    function clearPostFields() {
+        document.querySelector("#title-input").value = "";
+        document.querySelector("#post-body-textarea").value = "";
+    }
 })
 
 

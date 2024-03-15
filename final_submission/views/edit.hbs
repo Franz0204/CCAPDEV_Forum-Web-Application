@@ -3,6 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="/static/stylesheets/profile.css" />
 <link rel="stylesheet" href="/static/stylesheets/edit-profile.css" />
+<input type="hidden" value={{this.username}} id="usnameid"/>
 
 {{> header}}
 <div id="page-content">
@@ -11,7 +12,7 @@
             <div class="profile-page">
                     <!-- Apply Javascript to allow the button to upload a file -->
                     <form id="pfp-input">
-                        <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" class="icon-edit"></label>  
+                        <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" id="icon-edit"></label>  
                           <input
                             type="file"
                             id="pfp-image-upload"
