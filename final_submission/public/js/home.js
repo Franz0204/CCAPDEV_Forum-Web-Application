@@ -40,8 +40,11 @@ document.addEventListener("DOMContentLoaded",function() {
                 name: p.name,
                 date: p.date,
                 title: p.title,
-                body: p.body,
-                tags: p.tags
+                body: p.body
+            }
+
+            if(tagarray.length > 0) {
+                postobject.tags = p.tags;
             }
 
             if(file.length > 0) {
@@ -68,9 +71,10 @@ document.addEventListener("DOMContentLoaded",function() {
 
             if(file.length > 0) {
                 let imgname = p.id + ".jpg";
-                const formData = new fd();
+                const formData = new FormData();
+                formData.append('filename',imgname);
                 formData.append('file',file[0],imgname);
-                formData.append('name','file');
+                console.log(formData);
                 const fileresponse = await fetch('/upload-post-image', {
                     method: 'POST',
                     body: formData
