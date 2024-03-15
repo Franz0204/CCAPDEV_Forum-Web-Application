@@ -5,6 +5,7 @@ import { ObjectId } from 'mongodb';
 const editProfileRouter = Router();
 const db = getDb();
 const profile = db.collection('profiles');
+const credentials = db.collection('profiles');
 
 editProfileRouter.get('/editProfile/:username', async (req, res) => {
     const username = req.params.username;
@@ -26,16 +27,20 @@ editProfileRouter.get('/editProfile/:username', async (req, res) => {
     }
 });
 
-// Route to update a user's profile
 editProfileRouter.put('/update-profile', async (req, res) => {
-    const username = req.params.username;
-    const { password, bio } = req.body; // Assuming the client sends the new password and bio
-
+    const { username, name, bio } = req.body;
+    console.log("Request Body:", req.body);
     try {
-        const result = await profile.updateOne(
-            { username: username },
-            { $set: { password: password, bio: bio } }
-        );
+
+        const filter = { username: username };
+
+        const updateProfile = {
+            $set: {
+               name: name,
+               bio: bio
+            },
+         };
+        const result = await profile.updateOne(filter, updateProfile);
 
         if (result.modifiedCount === 1) {
             res.status(200).json({ message: 'Profile updated successfully' });
