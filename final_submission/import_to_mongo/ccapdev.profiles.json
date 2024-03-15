@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "65f07a222f5c9ddaa3d4669b"
+  },
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "bio": "I love concerts and fandoms :3"
+},
+{
+  "_id": {
+    "$oid": "65f12508f2287f2e4c37aee4"
+  },
+  "username": "mGarcia619",
+  "name": "Miguel Garcia",
+  "bio": "-Recent Graduate of BSIT at La Salle\n-Passionate and Energetic\nOpportunity comes to those who seek it."
+},
+{
+  "_id": {
+    "$oid": "65f1252cf2287f2e4c37aee6"
+  },
+  "username": "Zofia213",
+  "name": "Sofia Reyes",
+  "bio": " Lover of literature, from classic tales to modern masterpieces. There's never enough room on my shelf :books::heart:"
+},
+{
+  "_id": {
+    "$oid": "65f12587f2287f2e4c37aee8"
+  },
+  "username": "andre0417",
+  "name": "Andres Tantoco",
+  "bio": "ANDRE, 21, PROFESSIONAL THRILL SEEKER."
+},
+{
+  "_id": {
+    "$oid": "65f12592f2287f2e4c37aeea"
+  },
+  "username": "Phil8080",
+  "name": "Phil Magno",
+  "bio": "- Insatiably curious about all matters technological. Passionate about problem-solving and creating in the digital realm."
+}]

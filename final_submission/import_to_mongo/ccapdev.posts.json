@@ -1,0 +1,242 @@
+[{
+  "_id": {
+    "$oid": "65f3e624657605ba12636873"
+  },
+  "postid": "1710482980629MCruz03",
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "date": "March 15, 2024",
+  "title": "Does anyone here like Danganronpa???",
+  "body": "I rly like this Junko shirt",
+  "tags": [
+    "danganronpa"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3e706c85f5338cb88545a"
+  },
+  "postid": "1710483206349MCruz03",
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "date": "March 15, 2024",
+  "title": "what music do u guys listen to?",
+  "body": "i like emo (MCR) and musical theater",
+  "tags": [
+    "music",
+    "question"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3e954ce10ffefe4480aed"
+  },
+  "postid": "1710483796880MCruz03",
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "date": "March 15, 2024",
+  "title": "hows everyone today?",
+  "body": "just a random thought haha",
+  "tags": [
+    "question"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3ea17ce10ffefe4480aef"
+  },
+  "postid": "1710483991742MCruz03",
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "date": "March 15, 2024",
+  "title": "heyy",
+  "body": "nya :3",
+  "tags": null,
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3eb9cdff57ff8e3d110c2"
+  },
+  "postid": "1710484380099mGarcia619",
+  "username": "mGarcia619",
+  "name": "Miguel Garcia",
+  "date": "March 15, 2024",
+  "title": "Just graduated!",
+  "body": "Hard work pays off :)",
+  "tags": [
+    "blessed",
+    "graduation"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3ebe9dff57ff8e3d110c3"
+  },
+  "postid": "1710484457458mGarcia619",
+  "username": "mGarcia619",
+  "name": "Miguel Garcia",
+  "date": "March 15, 2024",
+  "title": "Looking for internships",
+  "body": "Calling fellow IT people: what do you guys suggest?",
+  "tags": [
+    "question"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3eccbfcdf25162a1115b6"
+  },
+  "postid": "1710484683191Zofia213",
+  "username": "Zofia213",
+  "name": "Sofia Reyes",
+  "date": "March 15, 2024",
+  "title": "What have you all been reading lately?",
+  "body": "I cannot stress how much I LOVE The Confessions of St. Augustine. It's so raw and honest about the darker aspects of the human condition.",
+  "tags": [
+    "question",
+    "books"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3ede557e5bc9bb0b7c8d3"
+  },
+  "postid": "1710484965478Zofia213",
+  "username": "Zofia213",
+  "name": "Sofia Reyes",
+  "date": "March 15, 2024",
+  "title": "A literary pet peeve",
+  "body": "I love morally grey and unsympathetic characters. Just, please, for the love of all things good - don't pretend they're anything but that!",
+  "tags": null,
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3f240cbe6906115e6ec14"
+  },
+  "postid": "1710486080396Zofia213",
+  "username": "Zofia213",
+  "name": "Sofia Reyes",
+  "date": "March 15, 2024",
+  "title": "Ugh, I wish I had this bookshelf",
+  "body": "It's so beautiful <3",
+  "tags": null,
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3f3245b4318c227a8d5e1"
+  },
+  "postid": "1710486308911andre0417",
+  "username": "andre0417",
+  "name": "Andres Tantoco",
+  "date": "March 15, 2024",
+  "title": "LETS GOOOOOOOO",
+  "body": "JUST WON THAT GOLD...ITS NEVER OVER",
+  "tags": [
+    "wearechampions",
+    "believe"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3f37d5b4318c227a8d5e2"
+  },
+  "postid": "1710486397620andre0417",
+  "username": "andre0417",
+  "name": "Andres Tantoco",
+  "date": "March 15, 2024",
+  "title": "WHAT ARE YOUR GOALS?",
+  "body": "YOU NEED TO STRIVE 4 SOMETHING......START THINKING ABOUT IT",
+  "tags": [
+    "question"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3f3a85b4318c227a8d5e3"
+  },
+  "postid": "1710486440694andre0417",
+  "username": "andre0417",
+  "name": "Andres Tantoco",
+  "date": "March 15, 2024",
+  "title": "NEW COLLECTION DROP",
+  "body": "FRESHNESS IS COMING YOUR WAY",
+  "tags": [
+    "2024",
+    "drip"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3f3fd5b4318c227a8d5e4"
+  },
+  "postid": "1710486525900andre0417",
+  "username": "andre0417",
+  "name": "Andres Tantoco",
+  "date": "March 15, 2024",
+  "title": "MANILA WAS ON FIRE TONITE",
+  "body": "LOVE ALL MY BROTHERS N SISTERS",
+  "tags": [
+    "staywinning"
+  ],
+  "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "65f3f57306a44072e5d1e74f"
+  },
+  "postid": "1710486899323Phil8080",
+  "username": "Phil8080",
+  "name": "Phil Magno",
+  "date": "March 15, 2024",
+  "title": "Neuralink",
+  "body": "\"Creating a generalized brain interface to restore autonomy to those with unmet medical needs today and unlock human potential tomorrow.\"",
+  "tags": [
+    "neuralink",
+    "elon musk"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3f5a306a44072e5d1e750"
+  },
+  "postid": "1710486947265Phil8080",
+  "username": "Phil8080",
+  "name": "Phil Magno",
+  "date": "March 15, 2024",
+  "title": "Just Got My Neuralink(TM) Implant!",
+  "body": "My Thoughts Hurt! ",
+  "tags": [
+    "suffering"
+  ],
+  "hasImage": null
+},
+{
+  "_id": {
+    "$oid": "65f3f8c606a44072e5d1e751"
+  },
+  "postid": "1710487750741Phil8080",
+  "username": "Phil8080",
+  "name": "Phil Magno",
+  "date": "March 15, 2024",
+  "title": "Flesh Skin Bone DDDDDDDDDDD#$",
+  "body": "Mind Pain Flesh Content Delivery Musk Credit PayPal Paralysis Thought Control Bleeding DataAnalytics Singularity Teratogenesis Musk Brain Hell Numb Numb Numb Numb Numb Numb",
+  "tags": [
+    "love",
+    "death",
+    "annihilation"
+  ],
+  "hasImage": true
+}]
