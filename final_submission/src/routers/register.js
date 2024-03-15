@@ -5,6 +5,7 @@ import { ObjectId } from 'mongodb';
 const registerRouter = Router();
 const db = getDb();
 const credentials = db.collection('credentials');
+const profiles = db.collection('profiles');
 
 registerRouter.get('/register', async (req,res) => {
     console.log("test")
@@ -50,9 +51,17 @@ registerRouter.post('/make-user', async (req,res) => {
             handle:req.body.handle
         })
         if(result.acknowledged) {
-            console.log("acknowledged")
-            res.redirect("/login")
+            const result2 = await profiles.insertOne({
+                username: req.body.handle,
+                name: req.body.username,
+                bio: "Default bio"
+            })
+            if(result2.acknowledged) {
+                let path = '/profiles/' + req.body.handle;
+                res.redirect(path);
+            }
         }
+        
     }catch(err) {
         console.error(err);
     }
