@@ -14,6 +14,16 @@ searchRouter.get('/search', async (req,res) => {
     });
 });
 
+searchRouter.get('/search/:searchParam', async (req,res) => {
+    const p = req.params.searchParam;
+    const postsArr = await posts.find({body:{$regex:p, $options:"i"}}).toArray();
+    res.render("search_page", {
+        title: "Search",
+        posts: postsArr
+    });
+});
+
+
 searchRouter.get('/tagged/:tag', async (req,res) => {
     const postsArr = await posts.find({tags:req.params.tag}).sort({_id:-1}).toArray();
     res.render("search_page", {
