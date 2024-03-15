@@ -16,7 +16,7 @@ uploadRouter.post('/upload-post-image', postpicupload.array('file',1), function 
     });
     
 uploadRouter.post('/upload-pfp', pfpupload.array('file',1), (req,res) => {
-        res.send(200);
+        res.sendStatus(200);
     });
 
 export default uploadRouter;

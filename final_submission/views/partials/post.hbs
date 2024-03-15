@@ -1,14 +1,14 @@
 
 <div class="post-box">
-                    <a href="/posts/{{this.postid}}">
+                    
                     <div class="post-box-header">
                         <div class="post-box-header-icon"><img src="/static/profile_assets/{{this.username}}.jpg" /></div>
                         <div class="post-box-header-data-container">
-                            <div class="post-box-header-username">{{this.name}}</div>
+                            <div class="post-box-header-username"><a href="/profiles/{{this.username}}" class="profilelink">{{this.name}}</a></div>
                             <div class="post-box-header-handle">{{this.username}}</div>
                         </div>
-                        <div class="post-box-header-date">{{this.date}}</div>
-                    </div></a>
+                        <div class="post-box-header-date"><a href="/posts/{{this.postid}}">{{this.date}}</a></div>
+                    </div>
                     <div class="post-box-body">
                         <div class="post-box-title">{{this.title}}</div>
                         <hr class="title-divider"/>

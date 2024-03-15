@@ -169,6 +169,11 @@ html, body {
     overflow-y: auto;
 }
 
+.right-side > .post-box {
+    margin-top: 5%;
+    width: 60%;
+}
+
 .pfp-header {
     max-width: 100%;
     max-height: 30px;
