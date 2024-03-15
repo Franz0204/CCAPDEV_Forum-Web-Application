@@ -4,7 +4,7 @@ import postRouter from './posts.js';
 import searchRouter from './search.js';
 import editProfileRouter from './edit_profile.js';
 import uploadRouter from './file_upload.js';
-//import loginRouter from './login.js';
+import loginRouter from './login.js';
 
 const router = Router();
 
@@ -13,6 +13,7 @@ router.use(postRouter);
 router.use(searchRouter);
 router.use(editProfileRouter);
 router.use(uploadRouter);
+router.use(loginRouter);
 
 router.get('/', function(_req,res) {
     res.redirect('/home');
