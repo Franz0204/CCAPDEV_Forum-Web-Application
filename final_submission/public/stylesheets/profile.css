@@ -167,10 +167,12 @@ html, body {
     flex-direction: column;
     align-items: center; 
     overflow-y: auto;
+    padding-top: 3%;
 }
 
+
 .right-side > .post-box {
-    margin-top: 5%;
+
     width: 60%;
 }
 

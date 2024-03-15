@@ -36,10 +36,12 @@
                     <input type="submit" id="submit-post" value="Submit post"/>
                 </form>
             </div>
-            {{#if posts}}
+            <div id="post-list">
+                {{#if posts}}
                 {{#each posts}}
                 {{> post this}}
                 {{/each}}
             {{/if}}
+            </div>
         </div>
     </div>

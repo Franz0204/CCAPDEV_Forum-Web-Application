@@ -1,13 +1,14 @@
+<link rel="stylesheet" href="/static/stylesheets/search.css" />
 <link rel="stylesheet" href="/static/stylesheets/profile.css" />
-<link rel="stylesheet" href="/static/stylesheets/profile-post-only.css" />
+<link rel="stylesheet" href="/static/stylesheets/post-only.css" />
 
 {{> header}}
-<div id="page-content">
-    <div class="right-side">
+<div id="search-page-content">
+    <div id="search">
         {{#if posts}}
         {{#each posts}}
         {{> post this}}
         {{/each}}
-        {{/if}}
-    </div>        
+        {{/if}}    
+    </div> 
 </div>

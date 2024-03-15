@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
         $(commentHTML).find(".comment-box-header-date").append(d);
         $(commentHTML).find(".comment-box-text").append(b);
         $(commentHTML).find(".comment-user-pic").attr("src",iconpath);
-        $("div#comment-container").append(commentHTML);
+        $("div#comment-container").prepend(commentHTML);
         
     }
 

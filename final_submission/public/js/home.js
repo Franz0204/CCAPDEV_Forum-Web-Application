@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded",function() {
                 }
             }
             console.log("step 4");
+            clearPostFields();
         }
 
     });
@@ -158,7 +159,7 @@ document.addEventListener("DOMContentLoaded",function() {
             $(postHTML).find(".post-box-body").append(imgHTML);
         }
         $(postHTML).find(".post-user-pic").attr("src",iconpath);
-        $("div#post-side").append(postHTML);
+        $("div#post-list").prepend(postHTML);
     }
 
     function formatDate(date) {
@@ -170,6 +171,7 @@ document.addEventListener("DOMContentLoaded",function() {
     function clearPostFields() {
         document.querySelector("#title-input").value = "";
         document.querySelector("#post-body-textarea").value = "";
+        imageInput.value = null;
     }
 })
 

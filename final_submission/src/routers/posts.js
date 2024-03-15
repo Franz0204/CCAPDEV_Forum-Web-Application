@@ -12,7 +12,7 @@ const comments = db.collection('comments');
 postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
-    const postsArr = await posts.find({}).toArray();
+    const postsArr = await posts.find({}).sort({_id:-1}).toArray();
     res.render("home", {
         title: "Home",
         posts: postsArr
@@ -78,7 +78,7 @@ const profile = db.collection('profiles');
 postRouter.get('/profiles/:username', async (req,res) => {
     var user = req.params.username;
     const profilesArr = await profiles.find({"username":user}).toArray();
-    const postsArr = await posts.find({"username":user}).toArray();
+    const postsArr = await posts.find({"username":user}).sort({_id:-1}).toArray();
     if (profilesArr.length > 0){
         const profileobject = {"username":user,"name":profilesArr[0].name,"bio":profilesArr[0].bio}
         res.render("profile", {
