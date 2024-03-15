@@ -1,0 +1,4 @@
+- Create MongoDB database named 'ccapdev'
+- Import contents of import_to_mongo into 4 collections: profiles, credentials, posts, and comments
+- Open Command Prompt in root directory and enter 'node app.js'
+- Application may be viewed in browser at localhost:3000
