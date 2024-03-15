@@ -8,7 +8,8 @@ const Post = function(id,username,name,date,title,body) {
     this.body = body;
 }
 const posts = [];
-const currentUser = "MCruz03";
+const currentUser = "Zofia213";
+const curName = "Sofia Reyes"
 
 document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded",function() {
             let tagarray = tagstring.split(",");
             let haspic = false;
             let file = imageInput.files;
-            let p = new Post(postid,currentUser,"Maria Cruz",formatted,title,body,tagarray); //will fix placeholders later
+            let p = new Post(postid,currentUser,curName,formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             console.log("step 2");
             let postobject = {
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded",function() {
         "<div>" +
             "<div>" + "<img class='post-user-pic'>" + "</div>" +
             "<div>" + 
-                "<div>" + "</div>" +
+                "<div>" +  "</div>" +
                 "<div>" + "</div>" +
             "</div>" +
             "<div>" + "</div>" +
@@ -127,8 +128,12 @@ document.addEventListener("DOMContentLoaded",function() {
         "</div>")
         let classes = ["post-box-header","post-box-header-icon","post-box-header-data-container","post-box-header-username","post-box-header-handle","post-box-header-date", "post-box-body", "post-box-title", "post-box-text","post-box-footer","upvotes","downvotes","comments"];
         let handle = document.createTextNode(post.username);
-        let rn = document.createTextNode(post.name);
-        let d = document.createTextNode(post.date);
+        //let rn = document.createTextNode(post.name);
+        let profilepath = "/profiles/" + post.username;
+        let postpath = "/posts/" + post.id;
+        let rn = $("<a class='profilelink'>" + post.name + "</a>");
+        //let d = document.createTextNode(post.date);
+        let d = $("<a class='postlink'>" + post.date + "</a>");
         let t = document.createTextNode(post.title);
         let b = document.createTextNode(post.body);
         $(postHTML).find("div").each(function(i) {
@@ -143,6 +148,8 @@ document.addEventListener("DOMContentLoaded",function() {
         $(postHTML).find(".post-box-header-date").append(d);
         $(postHTML).find(".post-box-title").append(t);
         $(postHTML).find(".post-box-text").append(b);
+        $(postHTML).find(".profilelink").attr("href",profilepath);
+        $(postHTML).find(".postlink").attr("href",postpath);
         if(tagstring != "") {
             let tagarray = tagstring.split(",");
             tagarray.forEach(function(item) {

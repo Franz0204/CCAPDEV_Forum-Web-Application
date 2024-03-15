@@ -44,7 +44,7 @@ postRouter.get('/posts/:postID', async(req,res) => {
     var postid = req.params.postID;
     const postArr = await posts.find({"postid":postid}).toArray();
     if(postArr.length > 0) {
-        const commentArr = await comments.find({"original_postid":postid}).toArray();
+        const commentArr = await comments.find({"original_postid":postid}).sort({_id:-1}).toArray();
         res.render("post_page", {
             post: postArr[0],
             comments: commentArr
@@ -73,7 +73,6 @@ postRouter.post('/make-comment', async(req,res) => {
     }
 });
 
-const profile = db.collection('profiles');
 
 postRouter.get('/profiles/:username', async (req,res) => {
     var user = req.params.username;

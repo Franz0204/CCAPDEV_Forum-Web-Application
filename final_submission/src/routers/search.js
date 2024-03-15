@@ -15,7 +15,7 @@ searchRouter.get('/search', async (req,res) => {
 });
 
 searchRouter.get('/tagged/:tag', async (req,res) => {
-    const postsArr = await posts.find({tags:req.params.tag}).toArray();
+    const postsArr = await posts.find({tags:req.params.tag}).sort({_id:-1}).toArray();
     res.render("search_page", {
         title: "Search",
         posts: postsArr
