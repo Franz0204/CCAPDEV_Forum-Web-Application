@@ -7,7 +7,8 @@ const Comment = function(original,id,username,name,date,body) {
     this.body = body;
 }
 
-const currentUser = "MCruz03";
+const currentUser = "Phil8080";
+const curName = "Phil Magno";
 
 document.addEventListener("DOMContentLoaded", function() {
     const commentInput = document.querySelector("#comment-submit");
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let today = new Date();
             let formatted = formatDate(today);
             let commentid = Date.now().toString() + currentUser;
-            let newcomment = new Comment(document.querySelector("#postid").value, commentid, currentUser,"Maria Cruz",formatted,commenttext);
+            let newcomment = new Comment(document.querySelector("#postid").value, commentid, currentUser,curName,formatted,commenttext);
             let commentObject = {
                 original_postid: newcomment.original,
                 commentid: newcomment.id,
@@ -77,7 +78,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let classes = ["comment-box-header","comment-box-header-icon","comment-box-header-data-container","comment-box-header-username","comment-box-header-handle",
         "comment-box-header-date","comment-box-body","comment-box-text","comment-box-footer","upvotes","downvotes","comments"];
         let usname = document.createTextNode(comment.username);
-        let n = document.createTextNode(comment.name);
+        //let n = document.createTextNode(comment.name);
+        let n = $("<a class='profilelink'>" + comment.name + "</a>");
+        let profilepath = "/profiles/" + comment.username;
         let d = document.createTextNode(comment.date);
         let b = document.createTextNode(comment.body);
 
@@ -89,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         let iconpath = "/static/profile_assets/" + comment.username + ".jpg";
         $(commentHTML).find(".comment-box-header-username").append(n);
+        $(commentHTML).find(".profilelink").attr("href",profilepath);
         $(commentHTML).find(".comment-box-header-handle").append(usname);
         $(commentHTML).find(".comment-box-header-date").append(d);
         $(commentHTML).find(".comment-box-text").append(b);
