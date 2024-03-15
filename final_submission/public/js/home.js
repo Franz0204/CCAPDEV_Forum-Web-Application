@@ -8,8 +8,8 @@ const Post = function(id,username,name,date,title,body) {
     this.body = body;
 }
 const posts = [];
-const currentUser = "Zofia213";
-const curName = "Sofia Reyes"
+const currentUser = "Phil8080";
+const curName = "Phil Magno";
 
 document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded",function() {
     function clearPostFields() {
         document.querySelector("#title-input").value = "";
         document.querySelector("#post-body-textarea").value = "";
+        document.querySelector("#post-tags-input").value = "";
         imageInput.value = null;
     }
 })
