@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Test")
     const saveButton = document.querySelector("#SaveBtn");
     const cancelButton = document.querySelector("#CancelBtn");
+    const pfpInput = document.querySelector("#pfp-image-upload");
+
+    pfpInput.addEventListener("change", function (e) {
+        let fil = this.files;
+        let url = window.URL.createObjectURL(fil[0]);
+        $(".pfp").attr("src",url);
+    })
 
     saveButton?.addEventListener("click", async function (e) {
     e.preventDefault();
