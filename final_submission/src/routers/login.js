@@ -1,10 +1,15 @@
 import { Router } from 'express';
 import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
+import bcrypt from 'bcryptjs';
 
 const loginRouter = Router();
 const db = getDb();
 const credentials = db.collection('credentials');
+
+loginRouter.get('/login', async(req,res) => {
+    res.render('login');
+})
 
 loginRouter.post('/go-login', async (req, res) => {
     try {
@@ -14,13 +19,20 @@ loginRouter.post('/go-login', async (req, res) => {
         const user = await credentials.findOne({ handle });
 
         // Check if user exists and the provided password matches
-        if (user && user.password === password) {
+        if (user) {
             // Authentication successful
-            return res.status(200).json({ success: true, message: 'Login successful' });
-         
+            bcrypt.compare(password,user.password,function(err,result) {
+                if(result) {
+                    res.sendStatus(200);
+                    console.log('ok');
+                }
+                else {
+                    res.sendStatus(401);
+                }
+            });
         } else {
             // Authentication failed
-        return  res.status(401).json({ success: false, message: 'Invalid credentials' });
+            res.sendStatus(401);
         
         }
     } catch (error) {

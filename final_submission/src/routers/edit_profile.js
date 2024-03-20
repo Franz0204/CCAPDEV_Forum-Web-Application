@@ -19,7 +19,7 @@ editProfileRouter.get('/editProfile/:username', async (req, res) => {
                 bio: user.bio
             });
         } else {
-            res.status(404).send("User not found");
+            res.render('/error');
         }
     } catch (error) {
         console.error('Error fetching user:', error);
