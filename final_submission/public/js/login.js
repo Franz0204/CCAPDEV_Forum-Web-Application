@@ -21,25 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return value.trim() !== "";
   }
 
-  function sendCredentialsToServer(handle, password) {
-      fetch("/go-login", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ handle, password }),
+  async function sendCredentialsToServer(handle, password) {
+      const response = await fetch('/go-login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({handle,password})
       })
-      .then((response) => response.json())
-      .then((data) => {
-          console.log(data);
-          if (data.success) {
-              window.location.href = "/home";
-          } else {
-              alert("Invalid credentials. Please try again.");
-          }
-      })
-      .catch((error) => {
-          console.error("Error:", error);
-      });
+      if(response.status === 200) {
+        window.location.href = "/home";
+      }
   }
 });

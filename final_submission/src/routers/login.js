@@ -38,7 +38,7 @@ loginRouter.post('/go-login', async (req, res) => {
     } catch (error) {
         // Error occurred while processing the request
         console.error('Error:', error);
-       return res.status(500).json({ success: false, message: 'Internal Server Error' });
+       res.sendStatus(500);
     }
 });
 

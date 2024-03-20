@@ -50,22 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                })/*.then((response) => response.json())
-                .then((data) => {
-              
-                  console.log(data);
-                 
-                  if (data.success) {
-                    window.location.href = "/login";
-                  } else {
-                    alert("Invalid. Credentials already exist. Please try again.");
-                  }
                 })
-                .catch((error) => {
-                  console.error("Error:", error);
-                })*/
-
-                //After, remove this v
                 if (response.ok) {
                     console.log('success');
                     window.location.href = '/login'
