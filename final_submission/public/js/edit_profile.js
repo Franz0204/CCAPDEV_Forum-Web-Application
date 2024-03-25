@@ -31,12 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const updatedUser = {
             username: document.getElementById('username').value,
-            password: document.getElementById('password').value,
             name: document.getElementById('name').value,
             bio: document.getElementById('about-me').value
         };
         console.log(updatedUser);
-        if (validateField(updatedUser.username) && validateField(updatedUser.password) && validateField(updatedUser.name) && validateField(updatedUser.bio)) {
+        if (validateField(updatedUser.username) && validateField(updatedUser.name) && validateField(updatedUser.bio)) {
             try {
                 const response = await fetch('/update-profile', {
                     method: 'PUT',

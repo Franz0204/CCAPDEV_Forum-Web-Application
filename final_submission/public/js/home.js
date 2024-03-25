@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded",function() {
                 name: p.name,
                 date: p.date,
                 title: p.title,
-                body: p.body
+                body: p.body,
+                hasImage: false
             }
 
             if(tagstring != "") {

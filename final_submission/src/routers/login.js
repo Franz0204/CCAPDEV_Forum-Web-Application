@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
 import bcrypt from 'bcryptjs';
+import Credential from '../models/Credential.js';
 
 const loginRouter = Router();
-const db = getDb();
+/*const db = getDb();
 const credentials = db.collection('credentials');
-
+*/
 loginRouter.get('/login', async(req,res) => {
     res.render('login');
 })
@@ -16,7 +16,7 @@ loginRouter.post('/go-login', async (req, res) => {
         const { handle, password } = req.body;
 
         // Retrieve user from database based on the provided handle
-        const user = await credentials.findOne({ handle });
+        const user = await Credential.findOne({ handle }).lean().exec();
 
         // Check if user exists and the provided password matches
         if (user) {
