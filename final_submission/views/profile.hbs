@@ -8,20 +8,20 @@
         <div>
             <div class="profile-page">
                     <!-- Apply Javascript to allow the button to upload a file -->
-                    <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
+                    <img class="pfp"  src="/static/profile_assets/{{this.profile.username}}.jpg">
             </div>
             <div class="profile-name">
-                    <div>{{this.name}}</div>
-                    <div style="font-size: medium;">{{this.username}}</div>
+                    <div>{{this.profile.name}}</div>
+                    <div style="font-size: medium;">{{this.profile.username}}</div>
             </div>
             <div class="bio">   
-                {{this.bio}}
+                {{this.profile.bio}}
             </div>
         </div>
         <div class="edit-options">
             <div>
                 <!-- remove this from edit profile and add this to normal profile-->
-                <a href="/editProfile/{{this.username}}" class="brown-link">Edit Profile</a>
+                <a href="/editProfile/{{this.profile.username}}" class="brown-link">Edit Profile</a>
             </div>
             <div>
                 <a href="/login" class="brown-link">Log Out</a>

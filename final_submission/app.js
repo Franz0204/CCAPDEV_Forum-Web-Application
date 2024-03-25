@@ -7,8 +7,9 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import exphbs from 'express-handlebars';
 
-import { connectToMongo } from "./src/db/conn.js";
+//import { connectToMongo } from "./src/db/conn.js";
 import router from "./src/routers/index.js";
+import {connectToDB,disconnect} from "./src/db/mg_conn.js";
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -23,7 +24,7 @@ app.set("view cache", false);
 
 console.log("URI:" + process.env.MONGODB_URI);
     try {
-        await connectToMongo();
+        await connectToDB();
         app.listen(process.env.SERVER_PORT, () => {
         console.log('Listening');
         })

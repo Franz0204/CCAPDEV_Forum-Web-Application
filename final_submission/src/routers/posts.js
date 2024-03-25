@@ -1,19 +1,23 @@
 import { Router } from 'express';
-import { getDb } from '../db/conn.js';
+//import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
 import express from 'express';
+import Post from '../models/Post.js';
+import Comment from '../models/Comment.js';
+import Profile from '../models/Profile.js';
 
 const postRouter = Router();
+/*
 const db = getDb();
 const posts = db.collection('posts');
 const profiles = db.collection('profiles');
-const comments = db.collection('comments');
+const comments = db.collection('comments');*/
 
 postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
-    const postsArr = await posts.find({}).sort({_id:-1}).toArray();
-    const top = await posts.find({}).sort({_id:-1}).limit(5).toArray();
+    const postsArr = await Post.find().sort({_id: -1}).lean().exec();
+    const top = await Post.find().sort({_id: -1}).lean().exec();
     res.render("home", {
         title: "Home",
         posts: postsArr,
@@ -24,7 +28,7 @@ postRouter.get('/home', async (req,res) => {
 postRouter.post('/make-post', async (req,res) => {
     console.log(req.body);
     try {
-        const result = await posts.insertOne({
+        await Post.create({
             postid: req.body.postid,
             username: req.body.username,
             name: req.body.name,
@@ -34,9 +38,7 @@ postRouter.post('/make-post', async (req,res) => {
             tags: req.body.tags,
             hasImage: req.body.hasImage
         })
-        if(result.acknowledged) {
-            res.sendStatus(200);
-        }
+        res.sendStatus(200);
     }catch(err) {
         console.error(err);
     }
@@ -44,13 +46,13 @@ postRouter.post('/make-post', async (req,res) => {
 
 postRouter.get('/posts/:postID', async(req,res) => {
     var postid = req.params.postID;
-    const postArr = await posts.find({"postid":postid}).toArray();
-    const top = await posts.find({}).sort({_id:-1}).limit(5).toArray();
-    if(postArr.length > 0) {
-        const commentArr = await comments.find({"original_postid":postid}).sort({_id:-1}).toArray();
+    const top = await Post.find().sort({_id: -1}).lean().exec();
+    const post = await Post.findOne({postid: postid}).lean().exec();
+    if(post) {
+        const comment = await Comment.find({original_postid: postid}).sort({_id:-1}).lean().exec();
         res.render("post_page", {
-            post: postArr[0],
-            comments: commentArr,
+            post: post,
+            comments: comment,
             topposts: top
         })
     }
@@ -59,9 +61,10 @@ postRouter.get('/posts/:postID', async(req,res) => {
     }
 });
 
+
 postRouter.post('/make-comment', async(req,res) => {
     try {
-        const result = await comments.insertOne({
+        await Comment.create({
             original_postid: req.body.original_postid,
             commentid: req.body.commentid,
             username: req.body.username,
@@ -69,9 +72,7 @@ postRouter.post('/make-comment', async(req,res) => {
             date: req.body.date,
             text: req.body.text
         });
-        if(result.acknowledged) {
-            res.sendStatus(200);
-        }
+        res.sendStatus(200);
     }catch(err) {
         res.sendStatus(500);
     }
@@ -80,15 +81,12 @@ postRouter.post('/make-comment', async(req,res) => {
 
 postRouter.get('/profiles/:username', async (req,res) => {
     var user = req.params.username;
-    const profilesArr = await profiles.find({"username":user}).toArray();
-    const postsArr = await posts.find({"username":user}).sort({_id:-1}).toArray();
-    if (profilesArr.length > 0){
-        const profileobject = {"username":user,"name":profilesArr[0].name,"bio":profilesArr[0].bio}
+    const profile = await Profile.findOne({username:user}).lean().exec();
+    const postsArr = await Post.find({username:user}).sort({_id: -1}).lean().exec();
+    if (profile){
         res.render("profile", {
             title: "Profile",
-            name: profileobject.name,
-            username: profileobject.username,
-            bio: profileobject.bio,
+            profile: profile,
             posts: postsArr
         });
     }
