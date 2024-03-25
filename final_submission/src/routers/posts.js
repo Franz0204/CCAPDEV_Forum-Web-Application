@@ -7,12 +7,6 @@ import Comment from '../models/Comment.js';
 import Profile from '../models/Profile.js';
 
 const postRouter = Router();
-/*
-const db = getDb();
-const posts = db.collection('posts');
-const profiles = db.collection('profiles');
-const comments = db.collection('comments');*/
-
 postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {

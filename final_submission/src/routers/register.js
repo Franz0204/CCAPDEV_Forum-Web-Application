@@ -1,19 +1,18 @@
 import { Router } from 'express';
-import { getDb } from '../db/conn.js';
 import bcrypt from 'bcryptjs';
 import { ObjectId } from 'mongodb';
 
+import Profile from '../models/Profile.js';
+import Credential from '../models/Credential.js';
+
 const r = 15;
 const registerRouter = Router();
-const db = getDb();
-const credentials = db.collection('credentials');
-const profiles = db.collection('profiles');
 
 registerRouter.get('/register', async (req,res) => {
     console.log("test")
     
     res.render("register", {
-        title: "Home"
+        title: "Register"
     });
 });
 
@@ -24,19 +23,19 @@ registerRouter.post('/make-user', async (req,res) => {
     console.log(req.body);
     try {
         bcrypt.hash(req.body.password, r).then(async function(hash) {
-            const result = await credentials.insertOne({
+            const result = await Credential.create({
                 username: req.body.username,
                 email: req.body.email,
                 password: hash,
                 handle:req.body.handle
-            })
-            if(result.acknowledged) {
-                const result2 = await profiles.insertOne({
+            });
+            if(result) {
+                const result2 = await Profile.create({
                     username: req.body.handle,
                     name: req.body.username,
                     bio: "Default bio"
                 })
-                if(result2.acknowledged) {
+                if(result2) {
                     res.redirect('/login');
                 }
             }
