@@ -33,8 +33,8 @@ editProfileRouter.put('/update-profile', async (req, res) => {
         const filter = {username: username};
         const profile = await Profile.findOne(filter).exec();
         if(profile) {
-            profile.name = name,
-            profile.bio = bio
+            profile.name = name;
+            profile.bio = bio;
             await profile.save();
             res.sendStatus(200);
             await Post.updateMany(filter, {
