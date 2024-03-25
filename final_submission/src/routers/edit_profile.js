@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
 import Profile from '../models/Profile.js'
+import Post from '../models/Post.js';
+import Comment from '../models/Comment.js';
 
 const editProfileRouter = Router();
 
@@ -36,6 +37,12 @@ editProfileRouter.put('/update-profile', async (req, res) => {
             profile.bio = bio
             await profile.save();
             res.sendStatus(200);
+            await Post.updateMany(filter, {
+                name: name
+            });
+            await Comment.updateMany(filter, {
+                name: name
+            });
         }
     } catch (error) {
         console.error('Error updating profile:', error);

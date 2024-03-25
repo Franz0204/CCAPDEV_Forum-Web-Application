@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
 import bcrypt from 'bcryptjs';
 import Credential from '../models/Credential.js';
