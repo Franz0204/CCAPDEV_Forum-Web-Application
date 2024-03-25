@@ -1,16 +1,14 @@
 import { Router } from 'express';
 import { getDb } from '../db/conn.js';
 import { ObjectId } from 'mongodb';
+import Profile from '../models/Profile.js'
 
 const editProfileRouter = Router();
-const db = getDb();
-const profile = db.collection('profiles');
-const credentials = db.collection('credentials');
 
 editProfileRouter.get('/editProfile/:username', async (req, res) => {
     const username = req.params.username;
     try {
-        const user = await profile.findOne({ username: username });
+        const user = await Profile.findOne({ username: username });
         if (user) {
             res.render("edit", {
                 title: "Edit Profile",
@@ -28,30 +26,16 @@ editProfileRouter.get('/editProfile/:username', async (req, res) => {
 });
 
 editProfileRouter.put('/update-profile', async (req, res) => {
-    const { username, password, name, bio } = req.body;
+    const { username, name, bio } = req.body;
     console.log("Request Body:", req.body);
     try {
-
-        const user = { username: username };
-        const updateProfile = {
-            $set: {
-               name: name,
-               bio: bio
-            },
-         };
-        
-        const handle = { handle: username };
-        const updatePassword = {
-            $set: {
-                password: password
-            },
-        };
-        const result = await profile.updateOne(user, updateProfile);
-        const result2 = await credentials.updateOne(handle, updatePassword);
-        if (result.modifiedCount === 1 && result2.modifiedCount === 1) {
-            res.status(200).json({ message: 'Profile updated successfully' });
-        } else {
-            res.status(400).json({ message: 'Failed to update profile' });
+        const filter = {username: username};
+        const profile = await Profile.findOne(filter).exec();
+        if(profile) {
+            profile.name = name,
+            profile.bio = bio
+            await profile.save();
+            res.sendStatus(200);
         }
     } catch (error) {
         console.error('Error updating profile:', error);
