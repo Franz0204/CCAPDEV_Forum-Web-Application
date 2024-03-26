@@ -1,0 +1,50 @@
+<title>Edit Profile</title>
+<script src="/static/js/edit_profile.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="/static/stylesheets/profile.css" />
+<link rel="stylesheet" href="/static/stylesheets/edit-profile.css" />
+<input type="hidden" value={{this.username}} id="usnameid"/>
+
+{{> header}}
+<div id="page-content">
+    <div id="left-side">
+        <div>
+            <div class="profile-page">
+                <!-- Apply Javascript to allow the button to upload a file -->
+                <form id="pfp-input">
+                    <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" id="icon-edit"></label>  
+                    <input type="file" id="pfp-image-upload" accept=".jpg, .jpeg" hidden />
+                </form>
+                <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
+            </div>
+            <div class="profile-name">
+                <div>{{this.name}}</div>
+                <div style="font-size: medium;">{{this.username}}</div>
+            </div>
+            <div class="bio">   
+                {{this.bio}}
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="settings">
+            <div class="settings-container">
+                <div>Post</div>
+                <div>Title:</div>
+                <div>
+                    <input type="text" id="username" name="username" class="input-box">
+                </div>
+                <div>Content:</div>
+                <div>
+                    <input type="text" id="about-me" name="about-me" class="input-box-bio"></input>
+                </div>
+                <div class="setting-choice">
+                    <button type="submit" class="styled-button">Cancel</button>
+                    <button type="submit" class="styled-button">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+</div>
+

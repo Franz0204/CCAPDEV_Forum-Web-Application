@@ -1,29 +1,29 @@
 
-<div class="post-box">
-                    
-                    <div class="post-box-header">
-                        <div class="post-box-header-icon"><img src="/static/profile_assets/{{this.username}}.jpg" /></div>
-                        <div class="post-box-header-data-container">
-                            <div class="post-box-header-username "><a href="/profiles/{{this.username}}" class="brown-link">{{this.name}}</a></div>
-                            <div class="post-box-header-handle">{{this.username}}</div>
-                        </div>
-                        <div class="post-box-header-date"><a href="/posts/{{this.postid}}" class="brown-link">{{this.date}}</a></div>
-                    </div>
-                    <div class="post-box-body">
-                        <div class="post-box-title">{{this.title}}</div>
-                        <hr class="title-divider"/>
-                        <div class="post-box-text">{{this.body}} {{#if this.tags}} {{#each this.tags}} {{> tag this}} {{/each}} {{/if}}</div>
-                        {{#if this.hasImage}}<div class="post-image"><img src="/static/post_images/{{this.postid}}.jpg"></div>{{/if}}
-                    </div>
-                    <div class="post-box-footer">
-                        <div class="upvotes">
-                            <span><img class="note-sprite" src="/static/generic_assets/upvote.png"> </span>
-                        </div>
-                        <div class="downvotes">
-                            <span><img class="note-sprite" src="/static/generic_assets/downvote.png"> </span>
-                        </div>
-                        <div class="comments">
-                            <span><img class="note-sprite" src="/static/generic_assets/comment.png"> </span>
-                        </div>
-                    </div>
-                </div>
+<div class="post-box">    
+    <div class="post-box-header">
+        <div class="post-box-header-icon"><img src="/static/profile_assets/{{this.username}}.jpg" /></div>
+        <div class="post-box-header-data-container">
+            <div class="post-box-header-username "><a href="/profiles/{{this.username}}" class="brown-link">{{this.name}}</a></div>
+            <div class="post-box-header-handle">{{this.username}}</div>
+        </div>
+        <div class="post-box-header-date"><a href="/editProfile/{{this.username}}/{{this.postid}}" class="brown-link">Edit</a></div>
+        <div class="post-box-header-date"><a href="/posts/{{this.postid}}" class="brown-link">{{this.date}}</a></div>
+    </div>
+    <div class="post-box-body">
+        <div class="post-box-title">{{this.title}}</div>
+        <hr class="title-divider"/>
+        <div class="post-box-text">{{this.body}} {{#if this.tags}} {{#each this.tags}} {{> tag this}} {{/each}} {{/if}}</div>
+        {{#if this.hasImage}}<div class="post-image"><img src="/static/post_images/{{this.postid}}.jpg"></div>{{/if}}
+    </div>
+    <div class="post-box-footer">
+        <div class="upvotes">
+            <span><img class="note-sprite" src="/static/generic_assets/upvote.png"> </span>
+        </div>
+        <div class="downvotes">
+            <span><img class="note-sprite" src="/static/generic_assets/downvote.png"> </span>
+        </div>
+        <div class="comments">
+            <span><img class="note-sprite" src="/static/generic_assets/comment.png"> </span>
+        </div>
+    </div>
+</div>
