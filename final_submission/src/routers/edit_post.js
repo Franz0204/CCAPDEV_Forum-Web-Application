@@ -67,6 +67,6 @@ editPostRouter.put('/update-post', async (req, res) => {
         await check1.save();
         res.sendStatus(200);
     }
-});*/
+});
 
 export default editPostRouter;
