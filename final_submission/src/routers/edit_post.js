@@ -6,9 +6,29 @@ import Comment from '../models/Comment.js';
 
 const editPostRouter = Router();
 
-editPostRouter.get('/editProfile/:username/:postId', async (req, res) => {
+editPostRouter.get('/editPost/:postId', async (req, res) => {
     const postId = req.params.postId;
-    const username = req.params.username;
+    const post = await Post.findOne({postid: postId, username: req.session.username}).lean().exec();
+    if(post) {
+        console.log(post);
+        let tagstring = "";
+        if(post.tags) {
+            tagstring = post.tags.join(",");
+        }
+        let renderObj = {
+            postid: post.postid,
+            title: post.title,
+            body: post.body,
+            username: post.username,
+            tags: tagstring,
+            name: post.name
+        }
+        res.render("edit_post",renderObj);
+    }
+    else {
+        res.redirect('/error');
+    }
+    /*
     try {
         const post = await Post.findOne({ postid: postId });
         const user = await Profile.findOne({ username: username });
@@ -27,29 +47,18 @@ editPostRouter.get('/editProfile/:username/:postId', async (req, res) => {
         console.error('Error fetching data:', error);
         res.status(500).send("Internal server error");
     }
+    */
 });
 
 editPostRouter.put('/update-post', async (req, res) => {
-    const { username, name, bio } = req.body;
-    console.log("Request Body:", req.body);
-    try {
-        const filter = {username: username};
-        const profile = await Profile.findOne(filter).exec();
-        if(profile) {
-            profile.name = name;
-            profile.bio = bio;
-            await profile.save();
-            res.sendStatus(200);
-            await Post.updateMany(filter, {
-                name: name
-            });
-            await Comment.updateMany(filter, {
-                name: name
-            });
-        }
-    } catch (error) {
-        console.error('Error updating profile:', error);
-        res.status(500).json({ message: 'Internal server error' });
+    const check1 = await Post.findOne({postid: req.body.postid, username: req.session.username}).exec();
+    if(check1) {
+        check1.title = req.body.title;
+        check1.body = req.body.body;
+        check1.tags = req.body.tags;
+        check1.date = req.body.date;
+        await check1.save();
+        res.sendStatus(200);
     }
 });
 

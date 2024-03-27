@@ -1,50 +1,31 @@
-<title>Edit Profile</title>
-<script src="/static/js/edit_profile.js"></script>
+<title>Edit Post</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="/static/stylesheets/profile.css" />
-<link rel="stylesheet" href="/static/stylesheets/edit-profile.css" />
-<input type="hidden" value={{this.username}} id="usnameid"/>
-
+<script src="/static/js/edit_post.js"></script>
+<link rel="stylesheet" href="/static/stylesheets/edit-post.css" />
+<input type="hidden" value="{{postid}}" id="postid"/>
 {{> header}}
 <div id="page-content">
-    <div id="left-side">
-        <div>
-            <div class="profile-page">
-                <!-- Apply Javascript to allow the button to upload a file -->
-                <form id="pfp-input">
-                    <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" id="icon-edit"></label>  
-                    <input type="file" id="pfp-image-upload" accept=".jpg, .jpeg" hidden />
+   <div id="post-entry">
+                <form id="post-entry-box" name="postBox">
+                    <div id="title-enter">
+                        <input type="text" placeholder="Enter a title..." id="title-input" value="{{title}}">
+                    </div>
+                    <div id="post-entry-body">
+                        <textarea placeholder="Write something..." id="post-body-textarea">{{body}}</textarea>
+                        <div id="pic">
+                          <label for="post-image-upload" ><img src="/static/generic_assets/camera.png" id="image-label"></label>  
+                          <input
+                            type="file"
+                            id="post-image-upload"
+                            accept=".jpg, .jpeg" />
+                        </div>
+                    </div>
+                    <input id = "userin" hidden value='{{username}}'>
+                    <input id="realnamein" hidden value='{{name}}'>
+                    <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags" value="{{tags}}">
+                    <input type="submit" id="submit-post" value="Submit post"/>
                 </form>
-                <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
             </div>
-            <div class="profile-name">
-                <div>{{this.name}}</div>
-                <div style="font-size: medium;">{{this.username}}</div>
-            </div>
-            <div class="bio">   
-                {{this.bio}}
-            </div>
-        </div>
-    </div>
-    <div class="right-side">
-        <div class="settings">
-            <div class="settings-container">
-                <div>Post</div>
-                <div>Title:</div>
-                <div>
-                    <input type="text" id="username" name="username" class="input-box">
-                </div>
-                <div>Content:</div>
-                <div>
-                    <input type="text" id="about-me" name="about-me" class="input-box-bio"></input>
-                </div>
-                <div class="setting-choice">
-                    <button type="submit" class="styled-button">Cancel</button>
-                    <button type="submit" class="styled-button">Save Settings</button>
-                </div>
-            </div>
-        </div>
-    </div>
                     
 </div>
 

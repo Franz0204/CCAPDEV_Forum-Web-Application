@@ -34,6 +34,7 @@ editProfileRouter.put('/update-profile', async (req, res) => {
         const filter = {username: username};
         const profile = await Profile.findOne(filter).exec();
         if(profile) {
+            req.session.name = name;
             profile.name = name;
             profile.bio = bio;
             await profile.save();
