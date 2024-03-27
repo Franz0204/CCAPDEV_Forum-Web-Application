@@ -1,10 +1,11 @@
     <link href="/static/stylesheets/home-post.css" rel="stylesheet" type="text/css" media="all"/>   
     <link rel="stylesheet" href="/static/stylesheets/post-only.css" type="text/css" media="all"/>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="/static/js/home.js"></script>
     <title>Home</title>
-
-    {{> header}}
+    {{#if user}}
+        {{> header_in user}}
+    {{else}}
+        {{> header_out}}
+    {{/if}}
     <div id="page-content">
         <div id="left-side">
             <div id="top-post-list">
@@ -16,26 +17,9 @@
            
         </div>
         <div id="post-side">
-            <div id="post-entry">
-                <form id="post-entry-box" name="postBox">
-                    <div id="title-enter">
-                        <input type="text" placeholder="Enter a title..." id="title-input">
-                    </div>
-                    <div id="post-entry-body">
-                        <textarea placeholder="Write something..." id="post-body-textarea"></textarea>
-                        <div id="pic">
-                          <label for="post-image-upload" ><img src="/static/generic_assets/camera.png" id="image-label"></label>  
-                          <input
-                            type="file"
-                            id="post-image-upload"
-                            accept=".jpg, .jpeg" />
-                        </div>
-                    </div>
-                    <input id = "user" hidden value = {{username}}>
-                    <input type="text" id="post-tags-input" placeholder="Enter a list of comma-separated tags">
-                    <input type="submit" id="submit-post" value="Submit post"/>
-                </form>
-            </div>
+            {{#if user}}
+                {{>post_entry user}}
+            {{/if}}
             <div id="post-list">
                 {{#if posts}}
                 {{#each posts}}

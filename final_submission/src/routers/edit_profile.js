@@ -6,23 +6,24 @@ import Comment from '../models/Comment.js';
 
 const editProfileRouter = Router();
 
-editProfileRouter.get('/editProfile/:username', async (req, res) => {
-    const username = req.params.username;
-    try {
-        const user = await Profile.findOne({ username: username });
-        if (user) {
-            res.render("edit", {
-                title: "Edit Profile",
-                name: user.name,
-                username: user.username,
-                bio: user.bio
-            });
-        } else {
-            res.render('/error');
+editProfileRouter.get('/editProfile', async (req, res) => {
+    if(req.session.username) {
+        const pr = await Profile.findOne({username: req.session.username}).lean().exec();
+        if(pr) {
+            let renderObj = {
+                name: pr.name,
+                bio: pr.bio,
+                username: req.session.username,
+                head: {
+                    username: req.session.username
+                }
+            }
+            res.render("edit",renderObj);
+        }else {
+            res.sendStatus(403);
         }
-    } catch (error) {
-        console.error('Error fetching user:', error);
-        res.status(500).send("Internal server error");
+    }else {
+        res.sendStatus(403);
     }
 });
 

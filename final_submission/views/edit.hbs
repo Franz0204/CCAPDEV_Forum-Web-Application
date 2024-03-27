@@ -5,7 +5,11 @@
 <link rel="stylesheet" href="/static/stylesheets/edit-profile.css" />
 <input type="hidden" value={{this.username}} id="usnameid"/>
 
-{{> header}}
+{{#if head}}
+        {{> header_in head}}
+    {{else}}
+        {{> header_out}}
+    {{/if}}
 <div id="page-content">
     <div id="left-side">
         <div>
@@ -15,14 +19,14 @@
                     <label for="pfp-image-upload" ><img src="/static/generic_assets/edit.png" id="icon-edit"></label>  
                     <input type="file" id="pfp-image-upload" accept=".jpg, .jpeg" hidden />
                 </form>
-                <img class="pfp"  src="/static/profile_assets/{{this.username}}.jpg">
+                <img class="pfp"  src="/static/profile_assets/{{username}}.jpg">
             </div>
             <div class="profile-name">
-                <div>{{this.name}}</div>
-                <div style="font-size: medium;">{{this.username}}</div>
+                <div>{{name}}</div>
+                <div style="font-size: medium;">{{username}}</div>
             </div>
             <div class="bio">   
-                {{this.bio}}
+                {{bio}}
             </div>
         </div>
     </div>
@@ -32,12 +36,12 @@
                 <div>Profile Settings</div>
                 <div>Name:</div>
                 <div>
-                    <input type="text" id="name" name="name" class="input-box">
+                    <input type="text" id="name" name="name" class="input-box" value="{{name}}">
                 </div>
                 <div>About Me:</div>
                 <div>
-                    <input type="text" id="about-me" name="about-me" class="input-box-bio"></input>
-                    <input type="text" id="username" name="username" class="input-box-bio" value="{{this.username}}" hidden></input>
+                    <textarea id="about-me" name="about-me" class="input-box-bio">{{bio}}</textarea>
+                    <input type="text" id="username" name="username" class="input-box-bio" value="{{username}}" hidden></input>
                 </div>
                 <div class="setting-choice">
                     <button type="submit" id="CancelBtn" class="styled-button">Cancel</button>

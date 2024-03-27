@@ -1,0 +1,11 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/static/js/post.js"></script>
+
+<form id="comment-entry">
+                    <div id="comment-entry-box">
+                        <textarea placeholder="Write a comment..." id="comment-text"></textarea>
+                    </div>
+                    <input id = "userin" hidden value='{{this.username}}'>
+                    <input id="realnamein" hidden value='{{this.name}}'>
+                    <button type="submit" id="comment-submit">Submit comment </button>
+            </form>

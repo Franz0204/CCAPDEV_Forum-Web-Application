@@ -17,29 +17,30 @@ registerRouter.get('/register', async (req,res) => {
 });
 
 
-
 registerRouter.post('/make-user', async (req,res) => {
     console.log("Test")
     console.log(req.body);
     try {
-        bcrypt.hash(req.body.password, r).then(async function(hash) {
-            const result = await Credential.create({
-                username: req.body.username,
-                email: req.body.email,
-                password: hash,
-                handle:req.body.handle
-            });
-            if(result) {
-                const result2 = await Profile.create({
-                    username: req.body.handle,
-                    name: req.body.username,
-                    bio: "Default bio"
-                })
-                if(result2) {
-                    res.redirect('/login');
+        const check = await Credential.findOne({username: req.body.username}).lean().exec();
+        if(!check) {
+            bcrypt.hash(req.body.password, r).then(async function(hash) {
+                const result = await Credential.create({
+                    email: req.body.email,
+                    password: hash,
+                    username:req.body.username
+                });
+                if(result) {
+                    const result2 = await Profile.create({
+                        username: req.body.username,
+                        name: req.body.name,
+                        bio: "Default bio"
+                    })
+                    if(result2) {
+                        res.redirect('/login');
+                    }
                 }
-            }
-        });
+            });
+        }
     }catch(err) {
         console.error(err);
     }

@@ -8,8 +8,6 @@ const Post = function(id,username,name,date,title,body) {
     this.body = body;
 }
 const posts = [];
-const currentUser = "Phil8080";
-const curName = "Phil Magno";
 
 document.addEventListener("DOMContentLoaded",function() {
     const postInput = document.querySelector("#submit-post");
@@ -26,12 +24,13 @@ document.addEventListener("DOMContentLoaded",function() {
         if(validateField(title) && validateField(body)) {
             let today = new Date();
             let formatted = formatDate(today);
-            let postid = Date.now().toString() + currentUser;
-            console.log(postid);
             let tagstring = document.querySelector("#post-tags-input").value;
             let tagarray = tagstring.split(",");
             let haspic = false;
             let file = imageInput.files;
+            let currentUser = document.querySelector("#userin").value;
+            let curName = document.querySelector("#realnamein").value;
+            let postid = Date.now().toString() + currentUser;
             let p = new Post(postid,currentUser,curName,formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             console.log("step 2");
