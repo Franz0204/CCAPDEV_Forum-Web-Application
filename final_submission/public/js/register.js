@@ -53,6 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 if (response.ok) {
                     console.log('success');
+                }else if(response.status === 403) {
+                    let e = document.createTextNode("Error: user already exists!");
+                    document.querySelector("#errorm").append(e);
                 }
             } catch (err) {
                 console.error(err);

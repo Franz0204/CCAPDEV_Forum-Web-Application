@@ -40,6 +40,8 @@ registerRouter.post('/make-user', async (req,res) => {
                     }
                 }
             });
+        }else {
+            res.sendStatus(403);
         }
     }catch(err) {
         console.error(err);
