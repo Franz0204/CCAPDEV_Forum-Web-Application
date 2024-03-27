@@ -35,10 +35,12 @@ editPostRouter.get('/editPost/:postId', async (req, res) => {
     try {
         const post = await Post.findOne({ postid: postId });
         const user = await Profile.findOne({ username: username });
+        console.log(post);
+        console.log(user);
         if (post && user) {
             res.render("edit_post", {
                 title: "Edit Profile",
-                postId: post.postid,
+                post: post,
                 name: user.name,
                 username: user.username,
                 bio: user.bio
@@ -65,6 +67,6 @@ editPostRouter.put('/update-post', async (req, res) => {
         await check1.save();
         res.sendStatus(200);
     }
-});
+});*/
 
 export default editPostRouter;
