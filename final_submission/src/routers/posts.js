@@ -11,7 +11,7 @@ postRouter.use(express.json());
 
 postRouter.get('/home', async (req,res) => {
     const postsArr = await Post.find().sort({_id: -1}).lean().exec();
-    const top = await Post.find().sort({_id: -1}).lean().exec();
+    const top = await Post.find().sort({_id: -1}).limit(5).lean().exec();
     let renderObj = {
         title: "Home",
         posts: postsArr,
@@ -52,7 +52,7 @@ postRouter.post('/make-post', async (req,res) => {
 
 postRouter.get('/posts/:postID', async(req,res) => {
     var postid = req.params.postID;
-    const top = await Post.find().sort({_id: -1}).lean().exec();
+    const top = await Post.find().sort({_id: -1}).limit(5).lean().exec();
     const post = await Post.findOne({postid: postid}).lean().exec();
     if(post) {
         const comment = await Comment.find({original_postid: postid}).sort({_id:-1}).lean().exec();
@@ -66,6 +66,9 @@ postRouter.get('/posts/:postID', async(req,res) => {
                 username: req.session.username,
                 name: req.session.name
             };
+            if(post.username === req.session.username) {
+                post.me = true;
+            }
         }
         res.render("post_page", renderObj)
     }
@@ -110,9 +113,9 @@ postRouter.get('/profiles/:username', async (req,res) => {
                 name: req.session.name
             };
             if(user === req.session.username) {
-                renderObj.me = {
-                    username: req.session.username
-                }
+                renderObj.posts.forEach((element) => {
+                    element.me = true;
+                })
             }
         }
         res.render("profile", renderObj);

@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
                 if (response.status === 200) {
+                    window.location.href = "/home";
                     console.log('success');
                 }
             }catch(err) {
@@ -79,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     body: formData
                 });
                 if(fileresponse.status === 200) {
+                    window.location.href = "/home";
                     console.log('success');
                 }
             }

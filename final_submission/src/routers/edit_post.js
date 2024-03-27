@@ -21,7 +21,10 @@ editPostRouter.get('/editPost/:postId', async (req, res) => {
             body: post.body,
             username: post.username,
             tags: tagstring,
-            name: post.name
+            name: post.name,
+            user: {username: req.session.username,
+                name: req.session.name}
+                
         }
         res.render("edit_post",renderObj);
     }
