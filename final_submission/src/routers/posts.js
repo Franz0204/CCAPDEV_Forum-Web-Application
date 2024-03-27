@@ -12,11 +12,23 @@ postRouter.use(express.json());
 postRouter.get('/home', async (req,res) => {
     const postsArr = await Post.find().sort({_id: -1}).lean().exec();
     const top = await Post.find().sort({_id: -1}).lean().exec();
-    res.render("home", {
+    let renderObj = {
         title: "Home",
         posts: postsArr,
         topposts: top
-    });
+    }
+    if(req.session.username) {
+        renderObj.user = {
+            username: req.session.username,
+            name: req.session.name
+        };
+        renderObj.posts.forEach((element)=> {
+            if(element.username===req.session.username) {
+                element.me = true
+            }
+        });
+    }
+    res.render("home", renderObj);
 });
 
 postRouter.post('/make-post', async (req,res) => {
@@ -44,11 +56,18 @@ postRouter.get('/posts/:postID', async(req,res) => {
     const post = await Post.findOne({postid: postid}).lean().exec();
     if(post) {
         const comment = await Comment.find({original_postid: postid}).sort({_id:-1}).lean().exec();
-        res.render("post_page", {
+        let renderObj = {
             post: post,
             comments: comment,
             topposts: top
-        })
+        }
+        if(req.session.username) {
+            renderObj.user = {
+                username: req.session.username,
+                name: req.session.name
+            };
+        }
+        res.render("post_page", renderObj)
     }
     else {
         res.redirect('/error');
@@ -77,12 +96,26 @@ postRouter.get('/profiles/:username', async (req,res) => {
     var user = req.params.username;
     const profile = await Profile.findOne({username:user}).lean().exec();
     const postsArr = await Post.find({username:user}).sort({_id: -1}).lean().exec();
+    
     if (profile){
-        res.render("profile", {
-            title: "Profile",
+        let t = profile.name + " - Profile";
+        let renderObj = {
+            title: t,
             profile: profile,
             posts: postsArr
-        });
+        }
+        if(req.session.username) {
+            renderObj.user = {
+                username: req.session.username,
+                name: req.session.name
+            };
+            if(user === req.session.username) {
+                renderObj.me = {
+                    username: req.session.username
+                }
+            }
+        }
+        res.render("profile", renderObj);
     }
     else {
         res.redirect("/error");

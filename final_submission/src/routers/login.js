@@ -2,29 +2,38 @@ import { Router } from 'express';
 import { ObjectId } from 'mongodb';
 import bcrypt from 'bcryptjs';
 import Credential from '../models/Credential.js';
+import Profile from '../models/Profile.js';
 
 const loginRouter = Router();
 /*const db = getDb();
 const credentials = db.collection('credentials');
 */
 loginRouter.get('/login', async(req,res) => {
-    res.render('login');
+    if(!req.session.username) {
+        res.render('login');
+    }
+    else {
+        var path = '/profiles/' + req.session.username;
+        res.redirect(path);
+    }
 })
 
 loginRouter.post('/go-login', async (req, res) => {
     try {
-        const { handle, password } = req.body;
+        const { username, password } = req.body;
 
         // Retrieve user from database based on the provided handle
-        const user = await Credential.findOne({ handle }).lean().exec();
-
+        const user = await Credential.findOne({ username: username }).lean().exec();
+        const prof = await Profile.findOne({username: username}).lean().exec();
         // Check if user exists and the provided password matches
-        if (user) {
+        if (user && prof) {
             // Authentication successful
+            console.log("user exists");
             bcrypt.compare(password,user.password,function(err,result) {
                 if(result) {
+                    req.session.username = username;
+                    req.session.name = prof.name;
                     res.sendStatus(200);
-                    console.log('ok');
                 }
                 else {
                     res.sendStatus(401);

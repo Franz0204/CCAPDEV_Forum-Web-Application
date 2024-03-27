@@ -5,7 +5,6 @@
             <div class="post-box-header-username "><a href="/profiles/{{this.username}}" class="brown-link">{{this.name}}</a></div>
             <div class="post-box-header-handle">{{this.username}}</div>
         </div>
-        <div class="post-box-header-date"><a href="/editProfile/{{this.username}}/{{this.postid}}" class="brown-link">Edit</a></div>
         <div class="post-box-header-date"><a href="/posts/{{this.postid}}" class="brown-link">{{this.date}}</a></div>
     </div>
     <div class="post-box-body">
@@ -25,4 +24,7 @@
             <span><img class="note-sprite" src="/static/generic_assets/comment.png"> </span>
         </div>
     </div>
+    {{#if this.me}}
+            <div class="post-box-header-edit"><a href="/editPost/{{this.postid}}" class="brown-link">Edit</a></div>
+        {{/if}}
 </div>

@@ -1,0 +1,17 @@
+<script src="/static/js/header.js"></script>
+
+<div class="header">
+    <div class="header-logo">
+        <a href="/home"><img class="logo" src="/static/generic_assets/CourseConvo.png"></a>
+    </div>
+    <div class="header-search">
+        <form>
+            <input type="text" id="search-field" placeholder="Enter keyword..." />
+            <input type="submit" value="Search" class="search-style"/>
+        </form>
+    </div>
+    <div class="header-profile" >
+        <img class="pfp-header" src="/static/profile_assets/{{this.username}}.jpg">
+        <a href="/profiles/{{this.username}}" class="white-link"><b>{{this.username}}</b></a>
+    </div>
+</div>

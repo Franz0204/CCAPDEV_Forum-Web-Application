@@ -1,8 +1,8 @@
-const User = function (username, email, password, handle){
-    this.username = username;
+const User = function (name, email, password, username){
+    this.name = name;
     this.email = email;
     this.password = password;
-    this.handle = handle;
+    this.username = username;
 };
 
 const users = [];
@@ -18,25 +18,25 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(userForm);
         
         // Extract values from FormData object
-        const username = formData.get('username');
+        const realName = formData.get('realname');
 
         //Make a validation email function
         //It basically gets the entered input in the email field then checks if it ends with '@<email-website>.com' 
         const email = formData.get('email');
         const password = formData.get('password');
-        const handle = formData.get('handle');
+        const username = formData.get('username');
 
 
         // Perform validation
-        if (validateField(username) && validateField(email) && validateField(password) && validateField(handle)) {
-            let u = new User(username, email, password, handle);
+        if (validateField(username) && validateField(email) && validateField(password) && validateField(realName)) {
+            let u = new User(realName, email, password, username);
 
 
             let registerobject = {
-                username: u.username,
+                name: u.name,
                 email: u.email,
                 password: u.password,
-                handle: u.handle
+                username: u.username
             }
 
             
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 if (response.ok) {
                     console.log('success');
-                    window.location.href = '/login'
                 }
             } catch (err) {
                 console.error(err);

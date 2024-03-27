@@ -7,9 +7,6 @@ const Comment = function(original,id,username,name,date,body) {
     this.body = body;
 }
 
-const currentUser = "Phil8080";
-const curName = "Phil Magno";
-
 document.addEventListener("DOMContentLoaded", function() {
     const commentInput = document.querySelector("#comment-submit");
     commentInput?.addEventListener("click", async(e) => {
@@ -19,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if(commenttext != "") {
             let today = new Date();
             let formatted = formatDate(today);
+            let currentUser = document.querySelector("#userin").value;
+            let curName = document.querySelector("#realnamein").value;
             let commentid = Date.now().toString() + currentUser;
             let newcomment = new Comment(document.querySelector("#postid").value, commentid, currentUser,curName,formatted,commenttext);
             let commentObject = {

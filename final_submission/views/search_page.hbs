@@ -2,7 +2,11 @@
 <link rel="stylesheet" href="/static/stylesheets/profile.css" />
 <link rel="stylesheet" href="/static/stylesheets/post-only.css" />
 
-{{> header}}
+{{#if head}}
+        {{> header_in head}}
+    {{else}}
+        {{> header_out}}
+    {{/if}}
 <div id="search-page-content">
     <div id="search">
         {{#if posts}}
