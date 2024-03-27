@@ -82,6 +82,10 @@
     font-size: medium;
 }
 
+.post-box-header-edit {
+    margin: 3%;
+}
+
 .upvotes, .downvotes, .comments {
     width: 33%;
     align-items: center;

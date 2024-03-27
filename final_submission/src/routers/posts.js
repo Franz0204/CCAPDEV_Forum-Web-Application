@@ -22,6 +22,11 @@ postRouter.get('/home', async (req,res) => {
             username: req.session.username,
             name: req.session.name
         };
+        renderObj.posts.forEach((element)=> {
+            if(element.username===req.session.username) {
+                element.me = true
+            }
+        });
     }
     res.render("home", renderObj);
 });
