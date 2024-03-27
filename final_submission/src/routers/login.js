@@ -51,4 +51,9 @@ loginRouter.post('/go-login', async (req, res) => {
     }
 });
 
+loginRouter.get("/logout", async (req,res) => {
+    req.session.destroy();
+    res.redirect("/home");
+});
+
 export default loginRouter;
