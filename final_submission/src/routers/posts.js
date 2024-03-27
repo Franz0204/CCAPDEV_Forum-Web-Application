@@ -116,6 +116,9 @@ postRouter.get('/profiles/:username', async (req,res) => {
                 renderObj.posts.forEach((element) => {
                     element.me = true;
                 })
+                renderObj.me = {
+                    username: req.session.username
+                }
             }
         }
         res.render("profile", renderObj);
