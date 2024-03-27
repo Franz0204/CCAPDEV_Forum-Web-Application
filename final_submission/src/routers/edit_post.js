@@ -12,10 +12,12 @@ editPostRouter.get('/editProfile/:username/:postId', async (req, res) => {
     try {
         const post = await Post.findOne({ postid: postId });
         const user = await Profile.findOne({ username: username });
+        console.log(post);
+        console.log(user);
         if (post && user) {
             res.render("edit_post", {
                 title: "Edit Profile",
-                postId: post.postid,
+                post: post,
                 name: user.name,
                 username: user.username,
                 bio: user.bio
@@ -29,7 +31,7 @@ editPostRouter.get('/editProfile/:username/:postId', async (req, res) => {
     }
 });
 
-editPostRouter.put('/update-post', async (req, res) => {
+/*editPostRouter.put('/update-post', async (req, res) => {
     const { username, name, bio } = req.body;
     console.log("Request Body:", req.body);
     try {
@@ -51,6 +53,6 @@ editPostRouter.put('/update-post', async (req, res) => {
         console.error('Error updating profile:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+});*/
 
 export default editPostRouter;

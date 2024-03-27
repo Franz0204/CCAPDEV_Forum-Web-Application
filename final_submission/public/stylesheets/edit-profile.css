@@ -5,13 +5,13 @@
     background-color: #F8FAE5;
     border-color: #76453B;   
     border-style: solid;
+    margin-bottom: 2%;
 }
 
 .settings-container{
     display: flex;
     flex-direction: column;
     padding: 2%;
-    
     color: #76453B;
 }
 
