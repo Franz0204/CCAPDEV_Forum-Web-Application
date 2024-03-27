@@ -53,6 +53,8 @@ editPostRouter.get('/editPost/:postId', async (req, res) => {
 editPostRouter.put('/update-post', async (req, res) => {
     const check1 = await Post.findOne({postid: req.body.postid, username: req.session.username}).exec();
     if(check1) {
+        console.log(check1);
+        console.log(req.body);
         check1.title = req.body.title;
         check1.body = req.body.body;
         check1.tags = req.body.tags;

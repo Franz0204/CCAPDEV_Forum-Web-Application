@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let file = imageInput.files;
             let currentUser = document.querySelector("#userin").value;
             let curName = document.querySelector("#realnamein").value;
-            let postid = Date.now().toString() + currentUser;
+            let postid = document.querySelector("#postid").value;
             let p = new Post(postid,currentUser,curName,formatted,title,body,tagarray); //will fix placeholders later
             posts.push(p);
             console.log("step 2");
