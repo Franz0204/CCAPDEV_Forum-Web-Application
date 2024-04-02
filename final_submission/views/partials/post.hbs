@@ -14,15 +14,9 @@
         {{#if this.hasImage}}<div class="post-image"><img src="/static/post_images/{{this.postid}}.jpg"></div>{{/if}}
     </div>
     <div class="post-box-footer">
-        <div class="upvotes">
-            <span><img class="note-sprite" src="/static/generic_assets/upvote.png"> </span>
-        </div>
-        <div class="downvotes">
-            <span><img class="note-sprite" src="/static/generic_assets/downvote.png"> </span>
-        </div>
-        <div class="comments">
-            <span><img class="note-sprite" src="/static/generic_assets/comment.png"> </span>
-        </div>
+        <div class="upvotes"></div>
+        <div class="downvotes"></div>
+        <div class="comments"></div>
     </div>
     {{#if this.me}}
             <div class="post-box-header-edit"><a href="/editPost/{{this.postid}}" class="brown-link">Edit</a></div>

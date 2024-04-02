@@ -75,11 +75,11 @@
 
 .post-box-footer {
     margin: 5%;
-    margin-left: 18%;
     display: flex;
     flex-direction: row;
     width: 90%;
     font-size: medium;
+    justify-content: space-evenly;
 }
 
 .post-box-header-edit {
@@ -90,6 +90,48 @@
     width: 33%;
     align-items: center;
     display: flex;
+}
+
+.downvotes{
+    background: url('/static/generic_assets/sprites.png') no-repeat 0 -30px;
+	background-size: 158px 73px;
+	width: 38px;
+	height: 43px;
+}
+
+.downvotes:hover{
+    background: url('/static/generic_assets/sprites.png') no-repeat -40px -30px;
+	background-size: 158px 73px;
+	width: 38px;
+	height: 43px;
+}
+
+.upvotes{
+    background: url('/static/generic_assets/sprites.png') no-repeat -80px -30px;
+	background-size: 158px 73px;
+	width: 38px;
+	height: 43px;
+}
+
+.upvotes:hover{
+    background: url('/static/generic_assets/sprites.png') no-repeat -120px -30px;
+	background-size: 158px 73px;
+	width: 38px;
+	height: 43px;
+}
+
+.comments{
+    background: url('/static/generic_assets/sprites.png') no-repeat 0 0;
+	background-size: 238px 109px;
+	width: 48px;
+	height: 42px;
+}
+
+.comments:hover{
+    background: url('/static/generic_assets/sprites.png') no-repeat -65.5px 0;
+	background-size: 238px 109px;
+	width: 48px;
+	height: 42px;
 }
 
 .note-sprite {
