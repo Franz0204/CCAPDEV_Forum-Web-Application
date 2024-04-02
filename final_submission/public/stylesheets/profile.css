@@ -34,6 +34,10 @@ html, body {
     margin-bottom: 2%;
 }
 
+.logo:hover {
+    border: 3px solid #F8FAE5; 
+}
+
 .header-search{
     justify-content: center;
 }
