@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/static/stylesheets/profile.css" />
+
+{{#if head}}
+        {{> header_in head}}
+    {{else}}
+        {{> header_out}}
+{{/if}}
+<div class="about-container">
+    <div class="about-section">
+        <h2>About Us</h2>
+        <div class="group-members">
+            <div class="group-member">
+                <img src="/static/profile_assets/Alonzo.png" alt="Member 1">
+                <h3>ALONZO, JUAN GABRIEL DECENA</h3>
+            </div>
+            <div class="group-member">
+                <img src="/static/profile_assets/00000.jpg" alt="Member 2">
+                <h3>DUMAS, FRANCISCO EMMANUEL TAN</h3>
+            </div>
+            <div class="group-member">
+                <img src="/static/profile_assets/Mapa.png" alt="Member 3">
+                <h3>MAPA, SABINE MARIANNE PADILLA</h3>
+            </div>
+        </div>
+
+        <h2>NPM Packages used</h2>
+        <ol class="resources-list"> 
+            <li><b>npm init</b> - npm (Node Package Manager) Initialization</li>
+            <li><b>npm i express</b> - Express.js Framework</li>
+            <li><b>npm i express-handlebars</b> - Express Handlebars View Engine</li>
+            <li><b>npm install mongodb</b> - MongoDB Node.js Driver</li>
+            <li><b>npm i dotenv</b> - dotenv Environment Variable Loader</li>
+            <li><b>npm install mongoose</b> - MongoDB ODM (Object Data Modeling) Library for Node.js</li>
+            <li><b>npm install express-session</b> - Session Middleware for Express.js</li>
+            <li><b>npm install bcryptjs</b> - Library for Hashing Passwords</li>
+            <li><b>npm install multer</b> - Middleware for Handling File Uploads</li>
+        </ol>
+    </div>
+</div>

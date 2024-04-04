@@ -128,5 +128,9 @@ postRouter.get('/profiles/:username', async (req,res) => {
     }
 });
 
+postRouter.get('/about', async (req,res) => {
+    res.render("about");
+});
+
 
 export default postRouter;
