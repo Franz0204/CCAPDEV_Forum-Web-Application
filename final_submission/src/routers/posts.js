@@ -129,7 +129,16 @@ postRouter.get('/profiles/:username', async (req,res) => {
 });
 
 postRouter.get('/about', async (req,res) => {
-    res.render("about");
+    let renderObj = {
+        title: "About the Site"
+    }
+    if(req.session.username) {
+        renderObj.head = {
+            username: req.session.username,
+            name: req.session.name
+        };
+    }
+    res.render("about",renderObj);
 });
 
 
