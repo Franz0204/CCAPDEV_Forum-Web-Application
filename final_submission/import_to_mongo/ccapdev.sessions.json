@@ -1,0 +1,23 @@
+[{
+  "_id": "Nn3iMg6dAjT93hKyAeqPxTcMZ1gXx0YI",
+  "expires": {
+    "$date": "2024-04-11T09:26:48.322Z"
+  },
+  "session": {
+    "cookie": {
+      "originalMaxAge": 604800000,
+      "partitioned": null,
+      "priority": null,
+      "expires": {
+        "$date": "2024-04-11T09:26:48.322Z"
+      },
+      "secure": null,
+      "httpOnly": true,
+      "domain": null,
+      "path": "/",
+      "sameSite": null
+    },
+    "username": "MCruz03",
+    "name": "Maria Cruz"
+  }
+}]

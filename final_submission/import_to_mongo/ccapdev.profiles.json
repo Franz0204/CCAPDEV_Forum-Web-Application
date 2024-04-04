@@ -4,7 +4,7 @@
   },
   "username": "MCruz03",
   "name": "Maria Cruz",
-  "bio": "I love concerts and fandoms :3"
+  "bio": "I love concerts and fandoms :3 Gojo is my husband"
 },
 {
   "_id": {
@@ -36,5 +36,14 @@
   },
   "username": "Phil8080",
   "name": "Phil Magno",
-  "bio": "- Insatiably curious about all matters technological. Passionate about problem-solving and creating in the digital realm."
+  "bio": "h"
+},
+{
+  "_id": {
+    "$oid": "66040e27b8aa7a418bfcffd8"
+  },
+  "username": "baen",
+  "name": "Baen Baen",
+  "bio": "baen",
+  "__v": 0
 }]

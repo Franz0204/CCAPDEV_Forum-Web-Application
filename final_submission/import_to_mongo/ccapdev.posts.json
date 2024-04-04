@@ -239,4 +239,54 @@
     "annihilation"
   ],
   "hasImage": true
+},
+{
+  "_id": {
+    "$oid": "6601336bd0d0a371b7f837e1"
+  },
+  "postid": "1711354731005Phil8080",
+  "username": "Phil8080",
+  "name": "Phil Magno",
+  "date": "March 25, 2024",
+  "title": "test",
+  "body": "test",
+  "tags": [
+    "t",
+    "e",
+    "s",
+    "t"
+  ],
+  "hasImage": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603e12921495d4a1d0547ec"
+  },
+  "postid": "1711530281477MCruz03",
+  "username": "MCruz03",
+  "name": "Maria Cruz",
+  "date": "March 27, 2024",
+  "title": "t",
+  "body": "e",
+  "tags": [
+    "1",
+    "2"
+  ],
+  "hasImage": true,
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "66040e9ab8aa7a418bfcffee"
+  },
+  "postid": "1711541914067baen",
+  "username": "baen",
+  "name": "Baen Baen",
+  "date": "March 27, 2024",
+  "title": "baenpost",
+  "body": "ing",
+  "tags": [],
+  "hasImage": true,
+  "__v": 0
 }]
