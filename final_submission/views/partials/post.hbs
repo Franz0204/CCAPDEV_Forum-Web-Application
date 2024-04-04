@@ -14,9 +14,9 @@
         {{#if this.hasImage}}<div class="post-image"><img src="/static/post_images/{{this.postid}}.jpg"></div>{{/if}}
     </div>
     <div class="post-box-footer">
-        <div class="upvotes"></div>
-        <div class="downvotes"></div>
-        <div class="comments"></div>
+        <div class="note-sprite"><div class="upvotes"></div></div>
+        <div class="note-sprite"><div class="downvotes"></div></div>
+        <div class="note-sprite"><div class="comments"></div></div>
     </div>
     {{#if this.me}}
             <div class="post-box-header-edit"><a href="/editPost/{{this.postid}}" class="brown-link">Edit</a></div>

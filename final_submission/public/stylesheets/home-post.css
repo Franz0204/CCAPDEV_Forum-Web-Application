@@ -319,6 +319,12 @@ a:hover {
     flex-direction: row;
     width: 90%;
     font-size: small;
+    column-gap: 20%;
+    align-items: center;
+}
+.comment-box.footer > .note-sprite {
+    width: 33%;
+    padding: 3%;
 }
 
 #comment-entry {
